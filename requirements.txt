@@ -1,0 +1,8 @@
+Bootstrap_Flask==TBD
+Flask_CKEditor==TBD
+WTForms==TBD
+Flask_WTF==TBD
+Werkzeug==TBD
+Flask==TBD
+flask_sqlalchemy==TBD
+SQLAlchemy==TBD

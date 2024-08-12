@@ -10,25 +10,38 @@
 
     <form method="POST" action="/generic">
         <label for="subject">Subject:</label>
-        <input type="text" id="subject" name="subject"><br><br>
+        <input type="text" id="subject" name="subject" value="{{ subject }}"><br><br>
 
         <label for="background">Background:</label>
-        <input type="text" id="background" name="background"><br><br>
+        <input type="text" id="background" name="background" value="{{ background }}"><br><br>
 
-        <label for="style">Style:</label>
-        <input type="text" id="style" name="style"><br><br>
+    <label for="style">Style:</label>
+    <select id="style" name="style">
+        {% for style_option in styles %}
+            <option value="{{ style_option }}" {% if style_option == style %}selected{% endif %}>{{ style_option }}</option>
+        {% endfor %}
+    </select>
 
+
+        <button type="button" onclick="randomizeParameters()">Randomize</button><br><br>
         <button type="submit">Generate Prompt</button>
     </form>
 
 {% if prompt %}
-    <p><strong>Generated Prompt:</strong> <span id="generatedPrompt">{{ prompt }}</span></p>
+    <label for="generatedPrompt"><strong>Generated Prompt:</strong></label><br>
+    <textarea id="generatedPrompt" rows="4" cols="50">{{ prompt }}</textarea><br><br>
     <button onclick="copyToClipboard()">Copy to Clipboard</button>
 {% endif %}
 
     <script>
+    function randomizeParameters() {
+    const styleSelect = document.getElementById("style");
+    const options = styleSelect.options;
+    const randomIndex = Math.floor(Math.random() * options.length);
+    styleSelect.selectedIndex = randomIndex;
+}
     function copyToClipboard() {
-        const promptText = document.getElementById("generatedPrompt").innerText;
+        const promptText = document.getElementById("generatedPrompt").value;
         navigator.clipboard.writeText(promptText).then(function() {
             alert("Prompt copied to clipboard!");
         }, function(err) {
