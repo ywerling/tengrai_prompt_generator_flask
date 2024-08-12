@@ -17,6 +17,7 @@ def generic():
     background = ""
     style = prompt_parameters.NONE_STRING
     art_type = prompt_parameters.NONE_STRING
+    camera_angle = prompt_parameters.NONE_STRING
 
     print("generic called")
     if request.method == "POST":
@@ -25,16 +26,31 @@ def generic():
         background = request.form.get("background")
         style = request.form.get("style")
         art_type = request.form.get("art_type")
+        camera_angle = request.form.get("camera_angle")
 
         # Process the form data to create the generated prompt
-        generated_prompt = f"{art_type}, {subject}, {background}, {style}"
+        generated_prompt = f"{art_type}, {subject}, {background}, {style}, {camera_angle}"
         print(generated_prompt)
 
-        return render_template("generic.html", prompt=generated_prompt, styles=prompt_parameters.STYLE_LIST, art_types =prompt_parameters.ART_TYPE_LIST,
-                               subject=subject, background=background, style=style, art_type=art_type)
+        return render_template("generic.html",
+                               prompt=generated_prompt,
+                               styles=prompt_parameters.STYLE_LIST,
+                               art_types =prompt_parameters.ART_TYPE_LIST,
+                               camera_angles = prompt_parameters.CAMERA_ANGLE_LIST,
+                               subject=subject,
+                               background=background,
+                               style=style,
+                               art_type=art_type,
+                               camera_angle=camera_angle)
 
-    return render_template("generic.html", prompt=None, styles=prompt_parameters.STYLE_LIST, art_types =prompt_parameters.ART_TYPE_LIST,
-                           subject=subject, background=background, style=style)
+    return render_template("generic.html",
+                           prompt=None,
+                           styles=prompt_parameters.STYLE_LIST,
+                           art_types =prompt_parameters.ART_TYPE_LIST,
+                           camera_angles=prompt_parameters.CAMERA_ANGLE_LIST,
+                           style=style,
+                           art_type=art_type,
+                           camera_angle=camera_angle)
 
 #go to the generic template creator
 @app.route("/landscape")

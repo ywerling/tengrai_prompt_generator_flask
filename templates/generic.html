@@ -22,6 +22,13 @@
         {% endfor %}
     </select><br><br>
 
+    <label for="camera_angle">Camera Angle:</label>
+    <select id="camera_angle" name="camera_angle">
+        {% for camera_angle_option in camera_angles %}
+            <option value="{{ camera_angle_option }}" {% if camera_angle_option == camera_angle %}selected{% endif %}>{{ camera_angle_option }}</option>
+        {% endfor %}
+    </select><br><br>
+
     <label for="art_type">Art Type:</label>
     <select id="art_type" name="art_type">
         {% for art_type_option in art_types %}
@@ -42,14 +49,21 @@
 
     <script>
     function randomizeParameters() {
+
     const styleSelect = document.getElementById("style");
     const optionsStyle = styleSelect.options;
     const randomStyle = Math.floor(Math.random() * optionsStyle.length);
     styleSelect.selectedIndex = randomStyle;
 
+    const cameraAngleSelect = document.getElementById("camera_angle");
+    const optionsCameraAngle = cameraAngleSelect.options;
+    const randomCameraAngle = Math.floor(Math.random() * optionsCameraAngle.length);
+    cameraAngleSelect.selectedIndex = randomCameraAngle;
+
+
     const artTypeSelect = document.getElementById("art_type");
-    const optionsArtYpe = artTypeSelect.options;
-    const randomArtType = Math.floor(Math.random() * optionsArtYpe.length);
+    const optionsArtType = artTypeSelect.options;
+    const randomArtType = Math.floor(Math.random() * optionsArtType.length);
     artTypeSelect.selectedIndex = randomArtType;
 
 
