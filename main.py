@@ -16,6 +16,7 @@ def generic():
     subject = ""
     background = ""
     style = prompt_parameters.NONE_STRING
+    art_type = prompt_parameters.NONE_STRING
 
     print("generic called")
     if request.method == "POST":
@@ -23,15 +24,16 @@ def generic():
         subject = request.form.get("subject")
         background = request.form.get("background")
         style = request.form.get("style")
+        art_type = request.form.get("art_type")
 
         # Process the form data to create the generated prompt
-        generated_prompt = f"Subject: {subject}, Background: {background}, Style: {style}"
+        generated_prompt = f"{art_type}, {subject}, {background}, {style}"
         print(generated_prompt)
 
-        return render_template("generic.html", prompt=generated_prompt, styles=prompt_parameters.STYLE_LIST,
-                               subject=subject, background=background, style=style)
+        return render_template("generic.html", prompt=generated_prompt, styles=prompt_parameters.STYLE_LIST, art_types =prompt_parameters.ART_TYPE_LIST,
+                               subject=subject, background=background, style=style, art_type=art_type)
 
-    return render_template("generic.html", prompt=None, styles=prompt_parameters.STYLE_LIST,
+    return render_template("generic.html", prompt=None, styles=prompt_parameters.STYLE_LIST, art_types =prompt_parameters.ART_TYPE_LIST,
                            subject=subject, background=background, style=style)
 
 #go to the generic template creator

@@ -20,11 +20,18 @@
         {% for style_option in styles %}
             <option value="{{ style_option }}" {% if style_option == style %}selected{% endif %}>{{ style_option }}</option>
         {% endfor %}
-    </select>
+    </select><br><br>
+
+    <label for="art_type">Art Type:</label>
+    <select id="art_type" name="art_type">
+        {% for art_type_option in art_types %}
+            <option value="{{ art_type_option }}" {% if art_type_option == art_type %}selected{% endif %}>{{ art_type_option }}</option>
+        {% endfor %}
+    </select><br><br>
 
 
         <button type="button" onclick="randomizeParameters()">Randomize</button><br><br>
-        <button type="submit">Generate Prompt</button>
+        <button type="submit">Generate Prompt</button><br><br>
     </form>
 
 {% if prompt %}
@@ -36,9 +43,16 @@
     <script>
     function randomizeParameters() {
     const styleSelect = document.getElementById("style");
-    const options = styleSelect.options;
-    const randomIndex = Math.floor(Math.random() * options.length);
-    styleSelect.selectedIndex = randomIndex;
+    const optionsStyle = styleSelect.options;
+    const randomStyle = Math.floor(Math.random() * optionsStyle.length);
+    styleSelect.selectedIndex = randomStyle;
+
+    const artTypeSelect = document.getElementById("art_type");
+    const optionsArtYpe = artTypeSelect.options;
+    const randomArtType = Math.floor(Math.random() * optionsArtYpe.length);
+    artTypeSelect.selectedIndex = randomArtType;
+
+
 }
     function copyToClipboard() {
         const promptText = document.getElementById("generatedPrompt").value;
