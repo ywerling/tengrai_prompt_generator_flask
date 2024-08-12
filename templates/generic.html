@@ -36,6 +36,48 @@
         {% endfor %}
     </select><br><br>
 
+    <label for="lighting">Lighting:</label>
+    <select id="lighting" name="lighting">
+        {% for lighting_option in lightings %}
+            <option value="{{ lighting_option }}" {% if lighting_option == lighting %}selected{% endif %}>{{ lighting_option }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label for="color_palette">Color Palette:</label>
+    <select id="color_palette" name="color_palette">
+        {% for color_palette_option in color_palettes %}
+            <option value="{{ color_palette_option }}" {% if color_palette_option == color_palette %}selected{% endif %}>{{ color_palette_option }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label for="color_vibe">Color Vibe:</label>
+    <select id="color_vibe" name="color_vibe">
+        {% for color_vibe_option in color_vibes %}
+            <option value="{{ color_vibe_option }}" {% if color_vibe_option == color_vibe %}selected{% endif %}>{{ color_vibe_option }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label for="composition">Composition:</label>
+    <select id="composition" name="composition">
+        {% for composition_option in compositions %}
+            <option value="{{ composition_option }}" {% if composition_option == composition %}selected{% endif %}>{{ composition_option }}</option>
+        {% endfor %}
+    </select><br><br>
+
+
+    <label for="special_effect">Special Effect:</label>
+    <select id="special_effect" name="special_effect">
+        {% for special_effect_option in special_effects %}
+            <option value="{{ special_effect_option }}" {% if special_effect_option == special_effect %}selected{% endif %}>{{ special_effect_option }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label for="miscellaneous">Miscellaneous:</label>
+    <select id="miscellaneous" name="miscellaneous">
+        {% for miscellaneous_option in miscellaneouss %}
+            <option value="{{ miscellaneous_option }}" {% if miscellaneous_option == miscellaneous %}selected{% endif %}>{{ miscellaneous_option }}</option>
+        {% endfor %}
+    </select><br><br>
 
         <button type="button" onclick="randomizeParameters()">Randomize</button><br><br>
         <button type="submit">Generate Prompt</button><br><br>
@@ -65,6 +107,36 @@
     const optionsArtType = artTypeSelect.options;
     const randomArtType = Math.floor(Math.random() * optionsArtType.length);
     artTypeSelect.selectedIndex = randomArtType;
+
+    const lightingSelect = document.getElementById("lighting");
+    const optionsLighting = lightingSelect.options;
+    const randomLighting = Math.floor(Math.random() * optionsLighting.length);
+    lightingSelect.selectedIndex = randomLighting;
+
+    const colorPaletteSelect = document.getElementById("color_palette");
+    const optionsColorPalette = colorPaletteSelect.options;
+    const randomColorPalette = Math.floor(Math.random() * optionsColorPalette.length);
+    colorPaletteSelect.selectedIndex = randomColorPalette;
+
+    const colorVibeSelect = document.getElementById("color_vibe");
+    const optionsColorVibe = colorVibeSelect.options;
+    const randomColorVibe = Math.floor(Math.random() * optionsColorVibe.length);
+    colorVibeSelect.selectedIndex = randomColorVibe;
+
+    const compositionSelect = document.getElementById("composition");
+    const optionsComposition = compositionSelect.options;
+    const randomComposition = Math.floor(Math.random() * optionsComposition.length);
+    compositionSelect.selectedIndex = randomComposition;
+
+    const specialEffectSelect = document.getElementById("special_effect");
+    const optionsSpecialEffect = specialEffectSelect.options;
+    const randomSpecialEffect = Math.floor(Math.random() * optionsSpecialEffect.length);
+    specialEffectSelect.selectedIndex = randomSpecialEffect;
+
+    const miscellaneousSelect = document.getElementById("miscellaneous");
+    const optionsMiscellaneous = miscellaneousSelect.options;
+    const randomMiscellaneous = Math.floor(Math.random() * optionsMiscellaneous.length);
+    miscellaneousSelect.selectedIndex = randomSpecialEffect;
 
 
 }

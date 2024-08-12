@@ -18,6 +18,12 @@ def generic():
     style = prompt_parameters.NONE_STRING
     art_type = prompt_parameters.NONE_STRING
     camera_angle = prompt_parameters.NONE_STRING
+    lighting = prompt_parameters.NONE_STRING
+    color_palette = prompt_parameters.NONE_STRING
+    special_effect = prompt_parameters.NONE_STRING
+    color_vibe = prompt_parameters.NONE_STRING
+    composition = prompt_parameters.NONE_STRING
+    miscellaneous = prompt_parameters.NONE_STRING
 
     print("generic called")
     if request.method == "POST":
@@ -27,30 +33,60 @@ def generic():
         style = request.form.get("style")
         art_type = request.form.get("art_type")
         camera_angle = request.form.get("camera_angle")
+        lighting = request.form.get("lighting")
+        color_palette = request.form.get("color_palette")
+        special_effect = request.form.get("special_effect")
+        color_vibe = request.form.get("color_vibe")
+        composition = request.form.get("composition")
+        miscellaneous = request.form.get("miscellaneous")
 
         # Process the form data to create the generated prompt
-        generated_prompt = f"{art_type}, {subject}, {background}, {style}, {camera_angle}"
+        generated_prompt = f"{art_type}, {subject}, {background}, {style}, {camera_angle}, {lighting}, {color_palette}, {special_effect}, {color_vibe}, {composition}"
         print(generated_prompt)
 
         return render_template("generic.html",
                                prompt=generated_prompt,
                                styles=prompt_parameters.STYLE_LIST,
                                art_types =prompt_parameters.ART_TYPE_LIST,
-                               camera_angles = prompt_parameters.CAMERA_ANGLE_LIST,
+                               camera_angles=prompt_parameters.CAMERA_ANGLE_LIST,
+                               lightings=prompt_parameters.LIGHTING_LIST,
+                               color_palettes=prompt_parameters.COLOR_PALETTE_LIST,
+                               special_effects=prompt_parameters.SPECIAL_EFFECTS_LIST,
+                               color_vibes=prompt_parameters.COLOR_VIBES_LIST,
+                               compositions=prompt_parameters.COMPOSITIONS_LIST,
+                               miscellaneouss=prompt_parameters.MISCELLANEOUS_LIST,
                                subject=subject,
                                background=background,
                                style=style,
                                art_type=art_type,
-                               camera_angle=camera_angle)
+                               camera_angle=camera_angle,
+                               lighting=lighting,
+                               color_palette=color_palette,
+                               special_effect=special_effect,
+                               color_vibe=color_vibe,
+                               composition=composition,
+                               miscellaneous=miscellaneous)
 
     return render_template("generic.html",
                            prompt=None,
                            styles=prompt_parameters.STYLE_LIST,
                            art_types =prompt_parameters.ART_TYPE_LIST,
                            camera_angles=prompt_parameters.CAMERA_ANGLE_LIST,
+                           lightings=prompt_parameters.LIGHTING_LIST,
+                           color_palettes=prompt_parameters.COLOR_PALETTE_LIST,
+                           special_effects=prompt_parameters.SPECIAL_EFFECTS_LIST,
+                           color_vibes=prompt_parameters.COLOR_VIBES_LIST,
+                           compositions=prompt_parameters.COMPOSITIONS_LIST,
+                           miscellaneouss=prompt_parameters.MISCELLANEOUS_LIST,
                            style=style,
                            art_type=art_type,
-                           camera_angle=camera_angle)
+                           camera_angle=camera_angle,
+                           lighting=lighting,
+                           color_palette=color_palette,
+                           special_effect=special_effect,
+                           color_vibe=color_vibe,
+                           composition=composition,
+                           miscellaneous=miscellaneous)
 
 #go to the generic template creator
 @app.route("/landscape")

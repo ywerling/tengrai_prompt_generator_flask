@@ -71,7 +71,8 @@ CAMERA_ANGLE_LIST = [NONE_STRING,
                      "long shot",
                      "low angle",
                      "mid shot",
-                     "wide angle"]
+                     "wide angle",
+                     "worm view"]
 
 # lights are an important aspect of both photography and painting
 LIGHTING_LIST = [NONE_STRING,
@@ -85,6 +86,7 @@ LIGHTING_LIST = [NONE_STRING,
                  "dusk",
                  "fluorescent",
                  "golden hour",
+                 "infrared",
                  "natural lighting",
                  "moonlight",
                  "neon lamp",
@@ -106,15 +108,6 @@ COLOR_PALETTE_LIST = [NONE_STRING,
                       "saturated colors",
                       "vibrant colors"]
 
-# a few additional commands to modify an image
-ADDITIONAL_FEATURES_LIST = [NONE_STRING,
-                            "4K",
-                            "8K",
-                            "detailed skin",
-                            "HDR",
-                            "hyper realistic",
-                            "octane render",
-                            "photorealistic"]
 
 # some light effects to be played with for some surrealistic images
 SPECIAL_EFFECTS_LIST = [NONE_STRING,
@@ -158,3 +151,13 @@ COMPOSITIONS_LIST = [NONE_STRING,
                      "Intricate Pattern",
 
 ]
+
+# a few additional commands to modify an image
+MISCELLANEOUS_LIST = [NONE_STRING,
+                            "4K",
+                            "8K",
+                            "detailed skin",
+                            "HDR",
+                            "hyper realistic",
+                            "octane render",
+                            "photorealistic"]
