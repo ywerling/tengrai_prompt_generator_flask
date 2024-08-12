@@ -46,6 +46,7 @@ ART_TYPE_LIST = [NONE_STRING,
                  "low-res pixel art",
                  "oil painting",
                  "one line drawing",
+                 "origami",
                  "paper cut craft illustration",
                  "paper quilling",
                  "pastel drawing",
@@ -119,8 +120,7 @@ SPECIAL_EFFECTS_LIST = [NONE_STRING,
                         "fiber-optic weave",
                         "holographic flares",
                         "phosphorescent shimmer",
-                        "thermoluminescent"
-                        ]
+                        "thermoluminescent" ]
 
 COLOR_VIBES_LIST = [NONE_STRING,
                     "Celestial Harmony",
@@ -132,25 +132,22 @@ COLOR_VIBES_LIST = [NONE_STRING,
                     "Aurora Borealis",
                     "Retro Futurism",
                     "Tropical Bliss",
-                    "Midnight Jazz",
-]
+                    "Midnight Jazz",]
 
 
 COMPOSITIONS_LIST = [NONE_STRING,
+                     "Circular",
+                     "Contrast",
+                     "Framing",
+                     "Geometric Pattern",
+                     "Golden Ratio",
+                     "Horizontal",
+                     "Intricate Pattern",
+                     "Leading Lines",
+                     "Negative Space",
                      "Rule of Thirds",
                      "Symmetrical",
-                     "Leading Lines",
-                     "Circular",
-                     "Golden Ratio",
-                     "Framing",
-                     "Vertical",
-                     "Horizontal",
-                     "Negative Space",
-                     "Contrast",
-                     "Geometric Pattern",
-                     "Intricate Pattern",
-
-]
+                     "Vertical",]
 
 # a few additional commands to modify an image
 MISCELLANEOUS_LIST = [NONE_STRING,
