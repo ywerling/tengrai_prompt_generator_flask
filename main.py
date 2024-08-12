@@ -41,7 +41,56 @@ def generic():
         miscellaneous = request.form.get("miscellaneous")
 
         # Process the form data to create the generated prompt
-        generated_prompt = f"{art_type}, {subject}, {background}, {style}, {camera_angle}, {lighting}, {color_palette}, {special_effect}, {color_vibe}, {composition}"
+        # generated_prompt = f"{art_type}, {subject}, {background}, {style}, {camera_angle}, {lighting}, {color_palette}, {special_effect}, {color_vibe}, {composition}"
+
+        generated_prompt = ""
+
+        if art_type != prompt_parameters.NONE_STRING:
+            generated_prompt += art_type
+            generated_prompt += " of "
+
+        if len(subject) > 0:
+            generated_prompt += subject
+            generated_prompt += " "
+
+        if len(background) > 0:
+            generated_prompt += "with "
+            generated_prompt += background
+            generated_prompt += " in the background "
+
+        if style != prompt_parameters.NONE_STRING:
+            generated_prompt += style
+            generated_prompt += ", "
+
+        if camera_angle != prompt_parameters.NONE_STRING:
+            generated_prompt += camera_angle
+            generated_prompt += ", "
+
+        if lighting != prompt_parameters.NONE_STRING:
+            generated_prompt += lighting
+            generated_prompt += ", "
+
+        if color_palette != prompt_parameters.NONE_STRING:
+            generated_prompt += color_palette
+            generated_prompt += ", "
+
+        if color_vibe != prompt_parameters.NONE_STRING:
+            generated_prompt += color_vibe
+            generated_prompt += " color vibe, "
+
+        if composition != prompt_parameters.NONE_STRING:
+            generated_prompt += composition
+            generated_prompt += " composition, "
+
+        if special_effect != prompt_parameters.NONE_STRING:
+            generated_prompt += special_effect
+            generated_prompt += ", "
+
+        if miscellaneous != prompt_parameters.NONE_STRING:
+            generated_prompt += miscellaneous
+            generated_prompt += ", "
+
+
         print(generated_prompt)
 
         return render_template("generic.html",
