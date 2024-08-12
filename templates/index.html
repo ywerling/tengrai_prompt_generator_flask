@@ -1,11 +1,28 @@
 {% extends 'base.html' %}
 
-{% block title %}Page title{% endblock %}
+{% block title %}Basic Image Prompt Generator for Generative Artificial Intelligence{% endblock %}
 
 {% block content %}
 
 <div class="container">
-  <h1 class="heading">Heading</h1>
-  <p class="description">Loren Ipsuum.</p>
+  <h1 class="heading">Welcome to the AI Prompt Generator</h1>
+  <p class="description">Click on a topic button to access the given prompt generator. This tool will help you create great prompts.</p>
 </div>
+
+    <a
+      class="btn btn-warning btn-lg"
+      href="{{ url_for('generic') }}"
+      role="button"
+      >Basic Generator</a
+    >
+
+    <a
+      class="btn btn-warning btn-lg"
+      href="{{ url_for('landscape') }}"
+      role="button"
+      >Landscape Generator</a
+    >
+
+
+
 {% endblock %}

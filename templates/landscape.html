@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Landscape Prompt Generator for Generative Artificial Intelligence{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1 class="heading">Welcome to the Landscape Prompt Generator</h1>
+  <p class="description">Fill in the requested information and click generate. You can edit the prompt and store it to the clipboard.</p>
+</div>
+
+    <a
+      class="btn btn-warning btn-lg"
+      href="{{ url_for('home') }}"
+      role="button"
+      >Back</a
+    >
+
+
+
+{% endblock %}

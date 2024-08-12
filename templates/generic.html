@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Generic Prompt Generator for Generative Artificial Intelligence{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1 class="heading">Welcome to the Generic Prompt Generator</h1>
+  <p class="description">Fill in the requested information and click generate. You can edit the prompt and store it to the clipboard.</p>
+</div>
+
+    <form method="POST" action="/generic">
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject"><br><br>
+
+        <label for="background">Background:</label>
+        <input type="text" id="background" name="background"><br><br>
+
+        <label for="style">Style:</label>
+        <input type="text" id="style" name="style"><br><br>
+
+        <button type="submit">Generate Prompt</button>
+    </form>
+
+{% if prompt %}
+    <p><strong>Generated Prompt:</strong> <span id="generatedPrompt">{{ prompt }}</span></p>
+    <button onclick="copyToClipboard()">Copy to Clipboard</button>
+{% endif %}
+
+    <script>
+    function copyToClipboard() {
+        const promptText = document.getElementById("generatedPrompt").innerText;
+        navigator.clipboard.writeText(promptText).then(function() {
+            alert("Prompt copied to clipboard!");
+        }, function(err) {
+            alert("Failed to copy prompt. Please try again.");
+        });
+    }
+    </script>
+
+    <a
+      class="btn btn-warning btn-lg"
+      href="{{ url_for('home') }}"
+      role="button"
+      >Back</a
+    >
+
+
+
+{% endblock %}

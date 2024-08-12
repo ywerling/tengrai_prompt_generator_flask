@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 from flask_bootstrap import Bootstrap5
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField
@@ -8,6 +8,29 @@ from wtforms.validators import DataRequired, URL
 app = Flask(__name__)
 app.config['SECRET_KEY'] = ('52jMEfBA3347dbefePSSiheXox3E7e')
 Bootstrap5(app)
+
+#go to the generic template creator
+@app.route("/generic", methods=["GET", "POST"])
+def generic():
+    print("generic called")
+    if request.method == "POST":
+        # Capture form data
+        subject = request.form.get("subject")
+        background = request.form.get("background")
+        style = request.form.get("style")
+
+        # Process the form data to create the generated prompt
+        generated_prompt = f"Subject: {subject}, Background: {background}, Style: {style}"
+        print(generated_prompt)
+
+        return render_template("generic.html", prompt=generated_prompt)
+
+    return render_template('generic.html', prompt=None)
+
+#go to the generic template creator
+@app.route("/landscape")
+def landscape():
+    return render_template('landscape.html')
 
 #start page of the webapplication
 @app.route("/")
