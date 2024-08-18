@@ -138,6 +138,16 @@ def generic():
                            miscellaneous=miscellaneous)
 
 #go to the generic template creator
+@app.route("/adobe", methods=["GET", "POST"])
+def adobe():
+    if request.method == "POST":
+        return render_template('adobe.html')
+
+    return render_template('adobe.html')
+
+
+
+#go to the landscape prompt creator
 @app.route("/landscape")
 def landscape():
     return render_template('landscape.html')

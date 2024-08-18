@@ -4,9 +4,18 @@
 
 {% block content %}
 <div class="container">
-  <h1 class="heading">Welcome to the Generic Prompt Generator</h1>
-  <p class="description">Fill in the requested information and click generate. You can edit the prompt and store it to the clipboard.</p>
+  <h1 class="heading">Welcome to the Adobe Image Data Webscrapping Tool</h1>
+  <p class="description">Enter a topic of your choice and when clicking the submit button, the tool will provide you with the description
+  of the first 100 images in the Adobe Image Database for use in prompt for image generative AI.</p>
 </div>
+
+        <div class="mb-3 row">
+            <label for="topic">Topic:</label>
+            <input type="text" id="topic" name="topic" value="{{ subject }}"><br><br>
+        </div>
+        <br><br>
+
+        <button type="submit">Submit</button><br><br>
 
     <a
       class="btn btn-warning btn-lg"

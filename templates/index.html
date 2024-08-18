@@ -9,20 +9,29 @@
   <p class="description">Click on a topic button to access the given prompt generator. This tool will help you create great prompts.</p>
 </div>
 
-    <a
-      class="btn btn-warning btn-lg"
-      href="{{ url_for('generic') }}"
-      role="button"
-      >Basic Generator</a
-    >
+<a
+  class="btn btn-warning btn-lg"
+  href="{{ url_for('generic') }}"
+  role="button"
+  >Basic Generator</a
+>
+<br><br>
 
-    <a
-      class="btn btn-warning btn-lg"
-      href="{{ url_for('landscape') }}"
-      role="button"
-      >Landscape Generator</a
-    >
+<a
+  class="btn btn-warning btn-lg"
+  href="{{ url_for('landscape') }}"
+  role="button"
+  >Landscape Generator</a
+>
+<br><br>
 
+<a
+  class="btn btn btn-info btn-lg"
+  href="{{ url_for('adobe') }}"
+  role="button"
+  >Adobe Image Data Webscrapping</a
+>
+<br><br>
 
 
 {% endblock %}
