@@ -4,6 +4,15 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired, URL
 import prompt_parameters
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+import time
+
+# Define constants
+ADOBE_STOCK_IMAGES_URL = "https://stock.adobe.com/"
+OUTPUT_DESTINATION = 'output.txt'
+WEBSCRAPPER_SLEEP_INTERVAL = 1
 
 #creates the flask instance
 app = Flask(__name__)
@@ -140,10 +149,36 @@ def generic():
 #go to the generic template creator
 @app.route("/adobe", methods=["GET", "POST"])
 def adobe():
+    search_term = "Nature"
     if request.method == "POST":
-        return render_template('adobe.html')
+        # ensure windows stays open
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_experimental_option("detach", True)
+        driver = webdriver.Chrome(chrome_options)
+        driver.get(ADOBE_STOCK_IMAGES_URL)
 
-    return render_template('adobe.html')
+        # allow the page to load
+        time.sleep(WEBSCRAPPER_SLEEP_INTERVAL)
+        search_input = driver.find_element(By.NAME, "keyword")
+        # search_input.send_keys(SEARCH_TERM)
+        search_input.send_keys(search_term)
+        search_input.send_keys(Keys.ENTER)
+
+        # allow the page to load
+        time.sleep(1)
+
+        # images = driver.find_elements(By.CSS_SELECTOR, "#js-img-protect alt")
+        # get images from the webpage
+        images = driver.find_elements(By.XPATH, "//img[@alt]")
+
+        # this part is for testing purpose only, it has to be commented out for production
+        for image in images:
+            print(f'{image.get_attribute("alt")}{image.get_attribute("name")}\n')
+
+        return render_template('adobe.html',
+                               images=images)
+
+    return render_template('adobe.html',images=None)
 
 
 
