@@ -8,10 +8,20 @@
   <p class="description">Enter a topic of your choice and when clicking the submit button, the tool will provide you with the description
   of the first 100 images in the Adobe Image Database for use in prompt for image generative AI.</p>
 </div>
+
+
+    <a
+      class="btn btn-warning btn-lg"
+      href="{{ url_for('home') }}"
+      role="button"
+      >Back</a
+    >
+
+
     <form method="POST" action="/adobe">
         <div class="mb-3 row">
             <label for="topic">Topic:</label>
-            <input type="text" id="topic" name="topic" value="{{ subject }}"><br><br>
+            <input type="text" id="topic" name="topic" value="{{ topic }}"><br><br>
         </div>
         <br><br>
 
@@ -35,14 +45,6 @@
 
         <button type="submit">Submit</button><br><br>
     </form>
-
-    <a
-      class="btn btn-warning btn-lg"
-      href="{{ url_for('home') }}"
-      role="button"
-      >Back</a
-    >
-
 
 
 {% endblock %}

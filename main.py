@@ -149,8 +149,9 @@ def generic():
 #go to the generic template creator
 @app.route("/adobe", methods=["GET", "POST"])
 def adobe():
-    search_term = "Nature"
+    search_term = ""
     if request.method == "POST":
+        search_term = request.form.get("topic")
         # ensure windows stays open
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_experimental_option("detach", True)
@@ -176,9 +177,12 @@ def adobe():
             print(f'{image.get_attribute("alt")}{image.get_attribute("name")}\n')
 
         return render_template('adobe.html',
-                               images=images)
+                               images=images,
+                               topic=search_term )
 
-    return render_template('adobe.html',images=None)
+    return render_template('adobe.html',
+                                images=None,
+                               topic=search_term)
 
 
 
