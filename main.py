@@ -11,7 +11,7 @@ import time
 
 # Define constants
 ADOBE_STOCK_IMAGES_URL = "https://stock.adobe.com/"
-OUTPUT_DESTINATION = 'output.txt'
+# OUTPUT_DESTINATION = 'output.txt'
 WEBSCRAPPER_SLEEP_INTERVAL = 1
 
 #creates the flask instance
@@ -150,11 +150,13 @@ def generic():
 @app.route("/adobe", methods=["GET", "POST"])
 def adobe():
     search_term = ""
+
     if request.method == "POST":
         search_term = request.form.get("topic")
-        # ensure windows stays open
+
         chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_experimental_option("detach", True)
+        # to ensure browser windows stays open set the detach parameter to True
+        chrome_options.add_experimental_option("detach", False)
         driver = webdriver.Chrome(chrome_options)
         driver.get(ADOBE_STOCK_IMAGES_URL)
 
@@ -172,9 +174,9 @@ def adobe():
         # get images from the webpage
         images = driver.find_elements(By.XPATH, "//img[@alt]")
 
-        # this part is for testing purpose only, it has to be commented out for production
-        for image in images:
-            print(f'{image.get_attribute("alt")}{image.get_attribute("name")}\n')
+        # this part is for testing purpose only, enable these lines for troubleshooting
+        # for image in images:
+        #     print(f'{image.get_attribute("alt")}{image.get_attribute("name")}\n')
 
         return render_template('adobe.html',
                                images=images,

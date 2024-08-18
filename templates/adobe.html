@@ -4,9 +4,9 @@
 
 {% block content %}
 <div class="container">
-  <h1 class="heading">Welcome to the Adobe Image Data Webscrapping Tool</h1>
+  <h1 class="heading">Welcome to the Adobe Stock Image Data Webscrapping Tool</h1>
   <p class="description">Enter a topic of your choice and when clicking the submit button, the tool will provide you with the description
-  of the first 100 images in the Adobe Image Database for use in prompt for image generative AI.</p>
+  of the first 100 images in the Adobe Stock Image Database for use in prompt for image generative AI.</p>
 </div>
 
 
@@ -25,9 +25,10 @@
         </div>
         <br><br>
 
+        <button type="submit">Submit</button><br><br>
 
         <div class="row">
-            <label for="images">Color Palette:</label>
+            <label for="images">List of image descriptions:</label>
             {% if images %}
                 {% for image in images[3:-3] %}
                     {% set text_to_write = image.get_attribute("alt") %}
@@ -43,7 +44,7 @@
 
         <br><br>
 
-        <button type="submit">Submit</button><br><br>
+
     </form>
 
 
