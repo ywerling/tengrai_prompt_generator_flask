@@ -8,6 +8,77 @@
   <p class="description">Fill in the requested information and click generate. You can edit the prompt and store it to the clipboard.</p>
 </div>
 
+    <form method="POST" action="/character">
+
+        <div class="container">
+          <div class="row">
+            <div class="col">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender">
+                {% for gender_option in genders %}
+                    <option value="{{ gender_option }}" {% if gender_option == gender %}selected{% endif %}>{{ gender_option }}</option>
+                {% endfor %}
+                </select><br><br>
+           </div>
+          <div class="col">
+            <label for="race">Race:</label>
+            <select id="race" name="race">
+            {% for race_option in races %}
+                <option value="{{ race_option }}" {% if race_option == race %}selected{% endif %}>{{ race_option }}</option>
+            {% endfor %}
+            </select><br><br>
+           </div>
+           <div class="col">
+            <label for="body_type">Body Type:</label>
+            <select id="body_type" name="body_type">
+            {% for body_type_option in body_types %}
+                <option value="{{ body_type_option }}" {% if body_type_option == body_type %}selected{% endif %}>{{ body_type_option }}</option>
+            {% endfor %}
+            </select><br><br>
+           </div>
+          <div class="col">
+            <label for="skin">Skin:</label>
+            <select id="skin" name="skin">
+            {% for skin_option in skins %}
+                <option value="{{ skin_option }}" {% if skin_option == skin %}selected{% endif %}>{{ skin_option }}</option>
+            {% endfor %}
+            </select><br><br>
+           </div>
+          <div class="col">
+            <label for="hair_color">Hair Color:</label>
+            <select id="hair_color" name="hair_color">
+            {% for hair_color_option in hair_colors %}
+                <option value="{{ hair_color_option }}" {% if hair_color_option == hair_color %}selected{% endif %}>{{ hair_color_option }}</option>
+            {% endfor %}
+            </select><br><br>
+           </div>
+          <div class="col">
+            <label for="hair_type">Hair Type:</label>
+            <select id="hair_type" name="hair_type">
+            {% for hair_type_option in hair_types %}
+                <option value="{{ hair_type_option }}" {% if hair_type_option == hair_type %}selected{% endif %}>{{ hair_type_option }}</option>
+            {% endfor %}
+            </select><br><br>
+           </div>
+          </div>
+
+
+        </div>
+
+
+        <button type="button" onclick="randomizeParameters()">Randomize</button><br><br>
+        <button type="submit">Generate Prompt</button><br><br>
+    </form>
+
+
+{% if prompt %}
+    <label for="generatedPrompt"><strong>Generated Prompt:</strong></label><br>
+    <textarea id="generatedPrompt" rows="4" cols="150">{{ prompt }}</textarea><br><br>
+    <button onclick="copyToClipboard()">Copy to Clipboard</button>
+{% endif %}
+
+    <br><br>
+
     <a
       class="btn btn-warning btn-lg"
       href="{{ url_for('home') }}"
@@ -15,6 +86,17 @@
       >Back</a
     >
 
+    <script>
+    function randomizeParameters() {}
 
+    function copyToClipboard() {
+        const promptText = document.getElementById("generatedPrompt").value;
+        navigator.clipboard.writeText(promptText).then(function() {
+            alert("Prompt copied to clipboard!");
+        }, function(err) {
+            alert("Failed to copy prompt. Please try again.");
+        });
+    }
 
+    </script>
 {% endblock %}

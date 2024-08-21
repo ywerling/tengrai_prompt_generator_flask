@@ -189,9 +189,58 @@ def adobe():
 
 
 #go to the character prompt creator
-@app.route("/character")
+@app.route("/character", methods=["GET", "POST"])
 def character():
-    return render_template('character.html')
+    gender = person_parameters.NONE_STRING
+    race = person_parameters.NONE_STRING
+    hair_color = person_parameters.NONE_STRING
+    body_type = person_parameters.NONE_STRING
+    skin = person_parameters.NONE_STRING
+    hair_type = person_parameters.NONE_STRING
+
+    if request.method == "POST":
+        generated_prompt = ""
+
+        gender = request.form.get("gender")
+        race = request.form.get("race")
+        hair_color = request.form.get("hair_color")
+        body_type = request.form.get("body_type")
+        skin = request.form.get("skin")
+        hair_type = request.form.get("hair_type")
+
+        generated_prompt = gender + " " + race + " " + body_type + " " + skin + " skin " + hair_color + " " + hair_type + " hair "
+
+        return render_template('character.html',
+                               prompt=generated_prompt,
+                               genders=person_parameters.GENDER_LIST,
+                               races=person_parameters.RACES_LIST,
+                               hair_colors=person_parameters.COLORS_LIST,
+                               body_types=person_parameters.BODY_TYPES_LIST,
+                               skins=person_parameters.SKIN_LIST,
+                               hair_types=person_parameters.HAIR_TYPES_LIST,
+                               gender=gender,
+                               race=race,
+                               hair_color=hair_color,
+                               body_type=body_type,
+                               skin=skin,
+                               hair_type=hair_type)
+
+
+    return render_template('character.html',
+                               prompt=None,
+                               genders=person_parameters.GENDER_LIST,
+                               races=person_parameters.RACES_LIST,
+                               hair_colors=person_parameters.COLORS_LIST,
+                               body_types=person_parameters.BODY_TYPES_LIST,
+                               skins=person_parameters.SKIN_LIST,
+                               hair_types=person_parameters.HAIR_TYPES_LIST,
+                               gender=gender,
+                               race=race,
+                               hair_color=hair_color,
+                               body_type=body_type,
+                               skin=skin,
+                               hair_type=hair_type)
+
 
 
 #go to the landscape prompt creator
