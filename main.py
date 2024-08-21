@@ -4,6 +4,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired, URL
 import prompt_parameters
+import person_parameters
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -186,6 +187,11 @@ def adobe():
                                 images=None,
                                topic=search_term)
 
+
+#go to the character prompt creator
+@app.route("/character")
+def character():
+    return render_template('character.html')
 
 
 #go to the landscape prompt creator
