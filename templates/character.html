@@ -62,6 +62,34 @@
            </div>
           </div>
 
+        <div class="row">
+            <div class="col">
+                <label for="clothing_color">Clothing Color:</label>
+                <select id="clothing_color" name="clothing_color">
+                {% for clothing_color_option in clothing_colors %}
+                    <option value="{{ clothing_color_option }}" {% if clothing_color_option == clothing_color %}selected{% endif %}>{{ clothing_color_option }}</option>
+                {% endfor %}
+                </select><br><br>
+           </div>
+                <div class="col">
+                <label for="clothing_material">Clothing Color:</label>
+                <select id="clothing_material" name="clothing_material">
+                {% for clothing_material_option in clothing_materials %}
+                    <option value="{{ clothing_material_option }}" {% if clothing_material_option == clothing_material %}selected{% endif %}>{{ clothing_material_option }}</option>
+                {% endfor %}
+                </select><br><br>
+           </div>
+            <div class="col">
+                <label for="clothing_type">Clothing Color:</label>
+                <select id="clothing_type" name="clothing_type">
+                {% for clothing_type_option in clothing_types %}
+                    <option value="{{ clothing_type_option }}" {% if clothing_type_option == clothing_type %}selected{% endif %}>{{ clothing_type_option }}</option>
+                {% endfor %}
+                </select><br><br>
+           </div>
+
+        </div>
+
 
         </div>
 

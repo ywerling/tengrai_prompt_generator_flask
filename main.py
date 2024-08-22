@@ -197,6 +197,9 @@ def character():
     body_type = person_parameters.NONE_STRING
     skin = person_parameters.NONE_STRING
     hair_type = person_parameters.NONE_STRING
+    clothing_material = person_parameters.NONE_STRING
+    clothing_color = person_parameters.NONE_STRING
+    clothing_type = person_parameters.NONE_STRING
 
     if request.method == "POST":
         generated_prompt = ""
@@ -207,8 +210,20 @@ def character():
         body_type = request.form.get("body_type")
         skin = request.form.get("skin")
         hair_type = request.form.get("hair_type")
+        clothing_material = request.form.get("clothing_material")
+        clothing_color = request.form.get("clothing_color")
+        clothing_type = request.form.get("clothing_type")
 
-        generated_prompt = gender + " " + race + " " + body_type + " " + skin + " skin " + hair_color + " " + hair_type + " hair "
+        generated_prompt = (gender + " "
+                            + race + " "
+                            + body_type + " "
+                            + skin + " skin "
+                            + hair_color + " "
+                            + hair_type + " hair "
+                            + clothing_color + " "
+                            + clothing_material + " "
+                            + clothing_type + " "
+                            + person_parameters.COMMON_PROMPT_ENDING)
 
         return render_template('character.html',
                                prompt=generated_prompt,
@@ -218,12 +233,18 @@ def character():
                                body_types=person_parameters.BODY_TYPES_LIST,
                                skins=person_parameters.SKIN_LIST,
                                hair_types=person_parameters.HAIR_TYPES_LIST,
+                               clothing_materials=person_parameters.CLOTHING_MATERIAL_LIST,
+                               clothing_colors=person_parameters.COLORS_LIST,
+                               clothing_types=person_parameters.CLOTHING_TYPE_LIST,
                                gender=gender,
                                race=race,
                                hair_color=hair_color,
                                body_type=body_type,
                                skin=skin,
-                               hair_type=hair_type)
+                               hair_type=hair_type,
+                               clothing_color=clothing_color,
+                               clothing_material=clothing_material,
+                               clothing_type=clothing_type,)
 
 
     return render_template('character.html',
@@ -234,13 +255,18 @@ def character():
                                body_types=person_parameters.BODY_TYPES_LIST,
                                skins=person_parameters.SKIN_LIST,
                                hair_types=person_parameters.HAIR_TYPES_LIST,
+                               clothing_materials=person_parameters.CLOTHING_MATERIAL_LIST,
+                               clothing_colors=person_parameters.COLORS_LIST,
+                               clothing_types=person_parameters.CLOTHING_TYPE_LIST,
                                gender=gender,
                                race=race,
                                hair_color=hair_color,
                                body_type=body_type,
                                skin=skin,
-                               hair_type=hair_type)
-
+                               hair_type=hair_type,
+                               clothing_color=clothing_color,
+                               clothing_material=clothing_material,
+                               clothing_type=clothing_type,)
 
 
 #go to the landscape prompt creator
