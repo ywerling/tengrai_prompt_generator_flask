@@ -5,7 +5,7 @@
 {% block content %}
 <div class="container">
   <h1 class="heading">Welcome to the Science Fiction and Fantasy Character Prompt Generator</h1>
-  <p class="description">Fill in the requested information and click generate. You can edit the prompt and store it to the clipboard.</p>
+  <p class="description">Fill in the requested information and click generate. You can edit the prompt and send it to the clipboard to be used in other applications.</p>
 </div>
 
     <form method="POST" action="/character">
@@ -13,6 +13,14 @@
         <div class="container">
           <div class="row">
             <div class="col">
+                <label for="scene">Period/World:</label>
+                <select id="scene" name="scene">
+                {% for scene_option in scenes %}
+                    <option value="{{ scene_option }}" {% if scene_option == scene %}selected{% endif %}>{{ scene_option }}</option>
+                {% endfor %}
+                </select><br><br>
+           </div>
+              <div class="col">
                 <label for="gender">Gender:</label>
                 <select id="gender" name="gender">
                 {% for gender_option in genders %}
@@ -44,6 +52,10 @@
             {% endfor %}
             </select><br><br>
            </div>
+
+          </div>
+
+        <div class="row">
           <div class="col">
             <label for="hair_color">Hair Color:</label>
             <select id="hair_color" name="hair_color">
@@ -60,9 +72,6 @@
             {% endfor %}
             </select><br><br>
            </div>
-          </div>
-
-        <div class="row">
             <div class="col">
                 <label for="clothing_color">Clothing Color:</label>
                 <select id="clothing_color" name="clothing_color">
@@ -72,7 +81,7 @@
                 </select><br><br>
            </div>
                 <div class="col">
-                <label for="clothing_material">Clothing Color:</label>
+                <label for="clothing_material">Clothing Material:</label>
                 <select id="clothing_material" name="clothing_material">
                 {% for clothing_material_option in clothing_materials %}
                     <option value="{{ clothing_material_option }}" {% if clothing_material_option == clothing_material %}selected{% endif %}>{{ clothing_material_option }}</option>
@@ -80,7 +89,7 @@
                 </select><br><br>
            </div>
             <div class="col">
-                <label for="clothing_type">Clothing Color:</label>
+                <label for="clothing_type">Clothing Type:</label>
                 <select id="clothing_type" name="clothing_type">
                 {% for clothing_type_option in clothing_types %}
                     <option value="{{ clothing_type_option }}" {% if clothing_type_option == clothing_type %}selected{% endif %}>{{ clothing_type_option }}</option>
@@ -98,21 +107,20 @@
         <button type="submit">Generate Prompt</button><br><br>
     </form>
 
-
+    <div class="container">
 {% if prompt %}
     <label for="generatedPrompt"><strong>Generated Prompt:</strong></label><br>
     <textarea id="generatedPrompt" rows="4" cols="150">{{ prompt }}</textarea><br><br>
     <button onclick="copyToClipboard()">Copy to Clipboard</button>
 {% endif %}
-
     <br><br>
-
     <a
       class="btn btn-warning btn-lg"
       href="{{ url_for('home') }}"
       role="button"
       >Back</a
     >
+    </div>
 
     <script>
     function randomizeParameters() {}

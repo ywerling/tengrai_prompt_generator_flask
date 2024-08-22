@@ -192,6 +192,7 @@ def adobe():
 @app.route("/character", methods=["GET", "POST"])
 def character():
     gender = person_parameters.NONE_STRING
+    scene = person_parameters.NONE_STRING
     race = person_parameters.NONE_STRING
     hair_color = person_parameters.NONE_STRING
     body_type = person_parameters.NONE_STRING
@@ -205,6 +206,7 @@ def character():
         generated_prompt = ""
 
         gender = request.form.get("gender")
+        scene = request.form.get("scene")
         race = request.form.get("race")
         hair_color = request.form.get("hair_color")
         body_type = request.form.get("body_type")
@@ -214,7 +216,8 @@ def character():
         clothing_color = request.form.get("clothing_color")
         clothing_type = request.form.get("clothing_type")
 
-        generated_prompt = (gender + " "
+        generated_prompt = (scene + " scene, "
+                            + gender + " "
                             + race + " "
                             + body_type + " "
                             + skin + " skin "
@@ -228,6 +231,7 @@ def character():
         return render_template('character.html',
                                prompt=generated_prompt,
                                genders=person_parameters.GENDER_LIST,
+                               scenes=person_parameters.SCENES_LIST,
                                races=person_parameters.RACES_LIST,
                                hair_colors=person_parameters.COLORS_LIST,
                                body_types=person_parameters.BODY_TYPES_LIST,
@@ -237,6 +241,7 @@ def character():
                                clothing_colors=person_parameters.COLORS_LIST,
                                clothing_types=person_parameters.CLOTHING_TYPE_LIST,
                                gender=gender,
+                               scene=scene,
                                race=race,
                                hair_color=hair_color,
                                body_type=body_type,
@@ -250,6 +255,7 @@ def character():
     return render_template('character.html',
                                prompt=None,
                                genders=person_parameters.GENDER_LIST,
+                               scenes=person_parameters.SCENES_LIST,
                                races=person_parameters.RACES_LIST,
                                hair_colors=person_parameters.COLORS_LIST,
                                body_types=person_parameters.BODY_TYPES_LIST,
@@ -259,6 +265,7 @@ def character():
                                clothing_colors=person_parameters.COLORS_LIST,
                                clothing_types=person_parameters.CLOTHING_TYPE_LIST,
                                gender=gender,
+                               scene=scene,
                                race=race,
                                hair_color=hair_color,
                                body_type=body_type,
