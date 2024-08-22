@@ -118,11 +118,26 @@
            </div>
         </div>
 
+        <div class="row">
+            <label for="background">Background:</label>
+            <input type="text" id="background" name="background" value="{{ background }}">
+            <br><br>
+       </div>
+
+
         </div>
 
+        <br>
+
          <div class="container">
-            <button type="button" onclick="randomizeParameters()" disabled="disabled">Randomize</button><br><br>
-            <button type="submit">Generate Prompt</button><br><br>
+            <div class="row">
+                <div class="col">
+                    <button type="submit">Generate Prompt</button><br>
+                </div>
+                <div class="col">
+                    <button type="button" onclick="randomizeParameters()" disabled="disabled">Randomize</button><br><br>
+                </div>
+            </div>
         </div>
     </form>
 

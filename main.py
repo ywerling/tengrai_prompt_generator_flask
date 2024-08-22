@@ -203,6 +203,7 @@ def character():
     clothing_type = person_parameters.NONE_STRING
     tool = person_parameters.NONE_STRING
     tool_action = person_parameters.NONE_STRING
+    background = ""
 
     if request.method == "POST":
         generated_prompt = ""
@@ -219,6 +220,7 @@ def character():
         clothing_type = request.form.get("clothing_type")
         tool = request.form.get("tool")
         tool_action = request.form.get("tool_action")
+        background = request.form.get("background")
 
         # generated_prompt = (scene + " scene, "
         #                     + gender + " "
@@ -246,11 +248,11 @@ def character():
 
         if body_type != prompt_parameters.NONE_STRING:
             generated_prompt += body_type
-            generated_prompt += " "
+            generated_prompt += " , "
 
         if skin != prompt_parameters.NONE_STRING:
             generated_prompt += skin
-            generated_prompt += " skin "
+            generated_prompt += " skin, "
 
         if hair_color != prompt_parameters.NONE_STRING:
             generated_prompt += hair_color
@@ -259,7 +261,6 @@ def character():
         if hair_type != prompt_parameters.NONE_STRING:
             generated_prompt += hair_type
             generated_prompt += " hair, "
-
 
         if clothing_color != prompt_parameters.NONE_STRING:
             generated_prompt += clothing_color
@@ -282,7 +283,12 @@ def character():
             generated_prompt += tool
             generated_prompt += ", "
 
+        if background != prompt_parameters.NONE_STRING:
+            generated_prompt += " the background consists of "
+            generated_prompt += background
+            generated_prompt += " "
 
+# add some generic elements to the prompt often used in portrait images to increase the probability of a quality image
         generated_prompt += person_parameters.COMMON_PROMPT_ENDING
 
         return render_template('character.html',
@@ -310,7 +316,8 @@ def character():
                                clothing_material=clothing_material,
                                clothing_type=clothing_type,
                                tool_action=tool_action,
-                               tool=tool)
+                               tool=tool,
+                               background=background)
 
 
     return render_template('character.html',
@@ -338,7 +345,8 @@ def character():
                                clothing_material=clothing_material,
                                clothing_type=clothing_type,
                                tool_action=tool_action,
-                               tool=tool)
+                               tool=tool,
+                               background=background,)
 
 
 #go to the landscape prompt creator
