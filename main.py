@@ -216,17 +216,56 @@ def character():
         clothing_color = request.form.get("clothing_color")
         clothing_type = request.form.get("clothing_type")
 
-        generated_prompt = (scene + " scene, "
-                            + gender + " "
-                            + race + " "
-                            + body_type + " "
-                            + skin + " skin "
-                            + hair_color + " "
-                            + hair_type + " hair "
-                            + clothing_color + " "
-                            + clothing_material + " "
-                            + clothing_type + " "
-                            + person_parameters.COMMON_PROMPT_ENDING)
+        # generated_prompt = (scene + " scene, "
+        #                     + gender + " "
+        #                     + race + " "
+        #                     + body_type + " "
+        #                     + skin + " skin "
+        #                     + hair_color + " "
+        #                     + hair_type + " hair "
+        #                     + clothing_color + " "
+        #                     + clothing_material + " "
+        #                     + clothing_type + " "
+        #                     + person_parameters.COMMON_PROMPT_ENDING)
+
+        if scene != prompt_parameters.NONE_STRING:
+            generated_prompt += scene
+            generated_prompt += " scene, "
+
+        if gender != prompt_parameters.NONE_STRING:
+            generated_prompt += gender
+            generated_prompt += " "
+
+        if body_type != prompt_parameters.NONE_STRING:
+            generated_prompt += body_type
+            generated_prompt += " "
+
+        if skin != prompt_parameters.NONE_STRING:
+            generated_prompt += skin
+            generated_prompt += " skin "
+
+        if hair_color != prompt_parameters.NONE_STRING:
+            generated_prompt += hair_color
+            generated_prompt += " "
+
+        if hair_type != prompt_parameters.NONE_STRING:
+            generated_prompt += hair_type
+            generated_prompt += " hair, "
+
+
+        if clothing_color != prompt_parameters.NONE_STRING:
+            generated_prompt += clothing_color
+            generated_prompt += " "
+
+        if clothing_material != prompt_parameters.NONE_STRING:
+            generated_prompt += clothing_material
+            generated_prompt += " "
+
+        if clothing_type != prompt_parameters.NONE_STRING:
+            generated_prompt += clothing_type
+            generated_prompt += ", "
+
+        generated_prompt += person_parameters.COMMON_PROMPT_ENDING
 
         return render_template('character.html',
                                prompt=generated_prompt,
