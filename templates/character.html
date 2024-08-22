@@ -99,12 +99,31 @@
 
         </div>
 
+        <div class="row">
+          <div class="col">
+            <label for="tool_action">Tool Action:</label>
+            <select id="tool_action" name="tool_action">
+            {% for tool_action_option in tool_actions %}
+                <option value="{{ tool_action_option }}" {% if tool_action_option == tool_action %}selected{% endif %}>{{ tool_action_option }}</option>
+            {% endfor %}
+            </select><br><br>
+           </div>
+          <div class="col">
+            <label for="tool">Tool:</label>
+            <select id="tool" name="tool">
+            {% for tool_option in tools %}
+                <option value="{{ tool_option }}" {% if tool_option == tool %}selected{% endif %}>{{ tool_option }}</option>
+            {% endfor %}
+            </select><br><br>
+           </div>
+        </div>
 
         </div>
 
-
-        <button type="button" onclick="randomizeParameters()" disabled="disabled">Randomize</button><br><br>
-        <button type="submit">Generate Prompt</button><br><br>
+         <div class="container">
+            <button type="button" onclick="randomizeParameters()" disabled="disabled">Randomize</button><br><br>
+            <button type="submit">Generate Prompt</button><br><br>
+        </div>
     </form>
 
     <div class="container">
