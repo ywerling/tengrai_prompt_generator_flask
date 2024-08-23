@@ -119,6 +119,22 @@
         </div>
 
         <div class="row">
+          <div class="col">
+            <label for="activity">Activity:</label>
+            <select id="activity" name="activity">
+            {% for activity_option in activities %}
+                <option value="{{ activity_option }}" {% if activity_option == activity %}selected{% endif %}>{{ activity_option }}</option>
+            {% endfor %}
+            </select><br><br>
+           </div>
+           <div class="col">
+            <label for="activity_detail">Details:</label>
+            <input type="text" id="activity_detail" name="activity_detail" value="{{ activity_detail }}">
+            <br><br>
+           </div>
+       </div>
+
+        <div class="row">
             <label for="background">Background:</label>
             <input type="text" id="background" name="background" value="{{ background }}">
             <br><br>

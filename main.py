@@ -203,6 +203,8 @@ def character():
     clothing_type = person_parameters.NONE_STRING
     tool = person_parameters.NONE_STRING
     tool_action = person_parameters.NONE_STRING
+    activity = person_parameters.NONE_STRING
+    activity_detail = ""
     background = ""
 
     if request.method == "POST":
@@ -220,6 +222,8 @@ def character():
         clothing_type = request.form.get("clothing_type")
         tool = request.form.get("tool")
         tool_action = request.form.get("tool_action")
+        activity = request.form.get("activity")
+        activity_detail = request.form.get("activity_detail")
         background = request.form.get("background")
 
         # generated_prompt = (scene + " scene, "
@@ -283,8 +287,16 @@ def character():
             generated_prompt += tool
             generated_prompt += ", "
 
-        if background != prompt_parameters.NONE_STRING:
-            generated_prompt += " the background consists of "
+        if activity != prompt_parameters.NONE_STRING:
+            generated_prompt += activity
+            generated_prompt += " "
+
+        if len(activity_detail) > 1:
+            generated_prompt += activity_detail
+            generated_prompt += " , "
+
+        if len(background) > 1:
+            generated_prompt += "the background consists of "
             generated_prompt += background
             generated_prompt += " "
 
@@ -305,6 +317,7 @@ def character():
                                clothing_types=person_parameters.CLOTHING_TYPE_LIST,
                                tool_actions=person_parameters.TOOL_ACTIONS_LIST,
                                tools=person_parameters.TOOLS_LIST,
+                               activities=person_parameters.ACTIVITY_LIST,
                                gender=gender,
                                scene=scene,
                                race=race,
@@ -317,7 +330,9 @@ def character():
                                clothing_type=clothing_type,
                                tool_action=tool_action,
                                tool=tool,
-                               background=background)
+                               background=background,
+                               activity=activity,
+                               activity_detail=activity_detail)
 
 
     return render_template('character.html',
@@ -334,6 +349,7 @@ def character():
                                clothing_types=person_parameters.CLOTHING_TYPE_LIST,
                                tool_actions=person_parameters.TOOL_ACTIONS_LIST,
                                tools=person_parameters.TOOLS_LIST,
+                               activities=person_parameters.ACTIVITY_LIST,
                                gender=gender,
                                scene=scene,
                                race=race,
@@ -346,7 +362,9 @@ def character():
                                clothing_type=clothing_type,
                                tool_action=tool_action,
                                tool=tool,
-                               background=background,)
+                               background=background,
+                               activity=activity,
+                               activity_detail=activity_detail)
 
 
 #go to the landscape prompt creator
