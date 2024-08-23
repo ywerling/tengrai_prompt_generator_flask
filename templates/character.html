@@ -12,15 +12,15 @@
 
         <div class="container">
           <div class="row">
-            <div class="col">
-                <label for="scene">Period/World:</label>
+            <div class="col-3">
+                <label for="scene">Setting:</label>
                 <select id="scene" name="scene">
                 {% for scene_option in scenes %}
                     <option value="{{ scene_option }}" {% if scene_option == scene %}selected{% endif %}>{{ scene_option }}</option>
                 {% endfor %}
                 </select><br><br>
            </div>
-              <div class="col">
+              <div class="col-3">
                 <label for="gender">Gender:</label>
                 <select id="gender" name="gender">
                 {% for gender_option in genders %}
@@ -28,7 +28,7 @@
                 {% endfor %}
                 </select><br><br>
            </div>
-          <div class="col">
+          <div class="col-3">
             <label for="race">Race:</label>
             <select id="race" name="race">
             {% for race_option in races %}
@@ -36,15 +36,15 @@
             {% endfor %}
             </select><br><br>
            </div>
-           <div class="col">
-            <label for="body_type">Body Type:</label>
+           <div class="col-3">
+            <label for="body_type">Body:</label>
             <select id="body_type" name="body_type">
             {% for body_type_option in body_types %}
                 <option value="{{ body_type_option }}" {% if body_type_option == body_type %}selected{% endif %}>{{ body_type_option }}</option>
             {% endfor %}
             </select><br><br>
            </div>
-          <div class="col">
+          <div class="col-3">
             <label for="skin">Skin:</label>
             <select id="skin" name="skin">
             {% for skin_option in skins %}
@@ -56,40 +56,40 @@
           </div>
 
         <div class="row">
-          <div class="col">
-            <label for="hair_color">Hair Color:</label>
+          <div class="col-3">
+            <label for="hair_color">Hair:</label>
             <select id="hair_color" name="hair_color">
             {% for hair_color_option in hair_colors %}
                 <option value="{{ hair_color_option }}" {% if hair_color_option == hair_color %}selected{% endif %}>{{ hair_color_option }}</option>
             {% endfor %}
             </select><br><br>
            </div>
-          <div class="col">
-            <label for="hair_type">Hair Type:</label>
+          <div class="col-3">
+            <label for="hair_type">Hair:</label>
             <select id="hair_type" name="hair_type">
             {% for hair_type_option in hair_types %}
                 <option value="{{ hair_type_option }}" {% if hair_type_option == hair_type %}selected{% endif %}>{{ hair_type_option }}</option>
             {% endfor %}
             </select><br><br>
            </div>
-            <div class="col">
-                <label for="clothing_color">Clothing Color:</label>
+            <div class="col-3">
+                <label for="clothing_color">Clothes:</label>
                 <select id="clothing_color" name="clothing_color">
                 {% for clothing_color_option in clothing_colors %}
                     <option value="{{ clothing_color_option }}" {% if clothing_color_option == clothing_color %}selected{% endif %}>{{ clothing_color_option }}</option>
                 {% endfor %}
                 </select><br><br>
            </div>
-                <div class="col">
-                <label for="clothing_material">Clothing Material:</label>
+                <div class="col-3">
+                <label for="clothing_material">Clothes:</label>
                 <select id="clothing_material" name="clothing_material">
                 {% for clothing_material_option in clothing_materials %}
                     <option value="{{ clothing_material_option }}" {% if clothing_material_option == clothing_material %}selected{% endif %}>{{ clothing_material_option }}</option>
                 {% endfor %}
                 </select><br><br>
            </div>
-            <div class="col">
-                <label for="clothing_type">Clothing Type:</label>
+            <div class="col-3">
+                <label for="clothing_type">Clothes:</label>
                 <select id="clothing_type" name="clothing_type">
                 {% for clothing_type_option in clothing_types %}
                     <option value="{{ clothing_type_option }}" {% if clothing_type_option == clothing_type %}selected{% endif %}>{{ clothing_type_option }}</option>
@@ -100,16 +100,16 @@
         </div>
 
         <div class="row">
-          <div class="col">
-            <label for="tool_action">Tool Action:</label>
+          <div class="col-3">
+            <label for="tool_action">Action:</label>
             <select id="tool_action" name="tool_action">
             {% for tool_action_option in tool_actions %}
                 <option value="{{ tool_action_option }}" {% if tool_action_option == tool_action %}selected{% endif %}>{{ tool_action_option }}</option>
             {% endfor %}
             </select><br><br>
            </div>
-          <div class="col">
-            <label for="tool">Tool:</label>
+          <div class="col-3">
+            <label for="tool">Object:</label>
             <select id="tool" name="tool">
             {% for tool_option in tools %}
                 <option value="{{ tool_option }}" {% if tool_option == tool %}selected{% endif %}>{{ tool_option }}</option>
@@ -119,18 +119,18 @@
         </div>
 
         <div class="row">
-          <div class="col">
+          <div class="col-md-2">
             <label for="activity">Activity:</label>
             <select id="activity" name="activity">
             {% for activity_option in activities %}
                 <option value="{{ activity_option }}" {% if activity_option == activity %}selected{% endif %}>{{ activity_option }}</option>
             {% endfor %}
-            </select><br><br>
+            </select>
            </div>
-           <div class="col">
-            <label for="activity_detail">Details:</label>
+           <div class="col-md-1">  <label for="activity_detail">Details:</label>
+           </div>
+           <div class="col-md-4">
             <input type="text" id="activity_detail" name="activity_detail" value="{{ activity_detail }}">
-            <br><br>
            </div>
        </div>
 
