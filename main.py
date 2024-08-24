@@ -66,11 +66,11 @@ def generic():
         if len(background) > 0:
             generated_prompt += "with "
             generated_prompt += background
-            generated_prompt += " in the background "
+            generated_prompt += " in the background, "
 
         if style != prompt_parameters.NONE_STRING:
             generated_prompt += style
-            generated_prompt += ", "
+            generated_prompt += " style, "
 
         if camera_angle != prompt_parameters.NONE_STRING:
             generated_prompt += camera_angle
@@ -99,6 +99,8 @@ def generic():
         if miscellaneous != prompt_parameters.NONE_STRING:
             generated_prompt += miscellaneous
             generated_prompt += ", "
+
+        generated_prompt = generated_prompt.rstrip(' ,')
 
 
         print(generated_prompt)
@@ -252,7 +254,7 @@ def character():
 
         if body_type != prompt_parameters.NONE_STRING:
             generated_prompt += body_type
-            generated_prompt += " , "
+            generated_prompt += ", "
 
         if skin != prompt_parameters.NONE_STRING:
             generated_prompt += skin
@@ -293,12 +295,12 @@ def character():
 
         if len(activity_detail) > 1:
             generated_prompt += activity_detail
-            generated_prompt += " , "
+            generated_prompt += ", "
 
         if len(background) > 1:
             generated_prompt += "the background consists of "
             generated_prompt += background
-            generated_prompt += " "
+            generated_prompt += ", "
 
 # add some generic elements to the prompt often used in portrait images to increase the probability of a quality image
         generated_prompt += person_parameters.COMMON_PROMPT_ENDING
