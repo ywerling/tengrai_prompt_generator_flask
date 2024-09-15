@@ -70,7 +70,7 @@ ART_TYPE_LIST = [NONE_STRING,
                  "product shot",
                  "risograph",
                  "serigraph",
-                 "silverpoint"
+                 "silverpoint",
                  "sumi-e art",
                  "stained glass",
                  "synesthesia art",
