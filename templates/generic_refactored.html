@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generic Prompt Creator</title>
+    <!-- Include Bootstrap CSS for styling -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Generic Prompt Creator</h1>
+        <!-- Form begins here -->
+        <form method="POST">
+            {{ form.hidden_tag() }}  <!-- CSRF protection tag -->
+
+            <!-- Subject Field -->
+            <div class="mb-3">
+                {{ form.subject.label(class="form-label") }}
+                {{ form.subject(class="form-control", placeholder="Enter subject") }}
+                {% if form.subject.errors %}
+                    <div class="text-danger">
+                        {% for error in form.subject.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Background Field -->
+            <div class="mb-3">
+                {{ form.background.label(class="form-label") }}
+                {{ form.background(class="form-control", placeholder="Enter background") }}
+                {% if form.background.errors %}
+                    <div class="text-danger">
+                        {% for error in form.background.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Style Dropdown Field -->
+            <div class="mb-3">
+                {{ form.style.label(class="form-label") }}
+                {{ form.style(class="form-select") }}
+                {% if form.style.errors %}
+                    <div class="text-danger">
+                        {% for error in form.style.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mb-3">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
+    </div>
+
+    <!-- Include Bootstrap JS for better user experience -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
