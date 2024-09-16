@@ -8,12 +8,81 @@
   <p class="description">Fill in the requested information and click generate. You can edit the prompt and store it to the clipboard.</p>
 </div>
 
+
+
+        <!-- Form begins here -->
+        <form method="POST">
+            {{ form.hidden_tag() }}  <!-- CSRF protection tag -->
+
+            <!-- Description Field -->
+            <div class="mb-3">
+                {{ form.description.label(class="form-label") }}
+                {{ form.description(class="form-control", placeholder="Describe your landscape") }}
+            </div>
+
+            <!-- Season Dropdown -->
+            <div class="mb-3">
+                {{ form.season.label(class="form-label") }}
+                {{ form.season(class="form-select") }}
+            </div>
+
+            <!-- Time of Day Dropdown -->
+            <div class="mb-3">
+                {{ form.time_of_day.label(class="form-label") }}
+                {{ form.time_of_day(class="form-select") }}
+            </div>
+
+            <!-- Weather Dropdown -->
+            <div class="mb-3">
+                {{ form.weather.label(class="form-label") }}
+                {{ form.weather(class="form-select") }}
+            </div>
+
+            <!-- Terrain Type Dropdown -->
+            <div class="mb-3">
+                {{ form.terrain.label(class="form-label") }}
+                {{ form.terrain(class="form-select") }}
+            </div>
+
+            <!-- Mood Dropdown -->
+            <div class="mb-3">
+                {{ form.mood.label(class="form-label") }}
+                {{ form.mood(class="form-select") }}
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mb-3">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
+
+        <!-- Display processed result here -->
+        {% if prompt %}
+            <label for="generatedPrompt"><strong>Generated Prompt:</strong></label><br>
+            <textarea id="generatedPrompt" rows="4" cols="50">{{ prompt }}</textarea><br><br>
+            <button onclick="copyToClipboard()">Copy to Clipboard</button>
+        {% endif %}
+    </div>
+
+
     <a
       class="btn btn-warning btn-lg"
       href="{{ url_for('home') }}"
       role="button"
       >Back</a
     >
+
+    <script>
+        function copyToClipboard() {
+        const promptText = document.getElementById("generatedPrompt").value;
+        navigator.clipboard.writeText(promptText).then(function() {
+            alert("Prompt copied to clipboard!");
+        }, function(err) {
+            alert("Failed to copy prompt. Please try again.");
+        });
+    }
+
+    </script>
 
 
 

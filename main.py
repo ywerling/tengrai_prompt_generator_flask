@@ -25,6 +25,8 @@ Bootstrap5(app)
 # Blueprint registration (for modularization, create a blueprint for each module)
 from views.generic import generic_bp
 app.register_blueprint(generic_bp)
+from views.landscape import landscape_bp
+app.register_blueprint(landscape_bp)
 
 #go to the basic template creator
 @app.route("/basic", methods=["GET", "POST"])

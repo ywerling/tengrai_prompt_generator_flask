@@ -19,6 +19,14 @@ class GenericForm(FlaskForm):
     submit = SubmitField("Create Prompt")
 
 class LandscapeForm(FlaskForm):
-    subject = StringField("Subject")
+    description = StringField("Landscape Description")
+
+    # Dropdown menus for various landscape characteristics
+    season = SelectField("Season", choices=prompt_parameters.SEASONS_LIST)
+    time_of_day = SelectField("Time of Day", choices=prompt_parameters.TIME_OF_DAY_LIST)
+    weather = SelectField("Weather", choices=prompt_parameters.WEATHER_LIST)
+    terrain = SelectField("Terrain", choices=prompt_parameters.TERRAIN_LIST)
+    mood = SelectField("Mood", choices=prompt_parameters.MOOD_LIST)
+
 
     submit = SubmitField("Create Prompt")

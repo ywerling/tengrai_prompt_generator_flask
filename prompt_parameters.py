@@ -29,7 +29,7 @@ STYLE_LIST = [NONE_STRING,
               "Renaissance",
               "Rococo",
               "Romanesque",
-              "Surrealism",]
+              "Surrealism", ]
 
 # styles supported by Stable Diffusion
 ART_TYPE_LIST = [NONE_STRING,
@@ -163,7 +163,6 @@ COLOR_VIBES_LIST = [NONE_STRING,
                     "Winter Wonderland",
                     "Zen Balance"]
 
-
 COMPOSITIONS_LIST = [NONE_STRING,
                      "Circular",
                      "Contrast",
@@ -177,7 +176,7 @@ COMPOSITIONS_LIST = [NONE_STRING,
                      "Negative Space",
                      "Rule of Thirds",
                      "Symmetrical",
-                     "Vertical",]
+                     "Vertical", ]
 
 # some light effects to be played with for some surrealistic images
 SPECIAL_EFFECTS_LIST = [NONE_STRING,
@@ -193,12 +192,50 @@ SPECIAL_EFFECTS_LIST = [NONE_STRING,
 
 # a few additional commands to modify an image
 MISCELLANEOUS_LIST = [NONE_STRING,
-                            "4K",
-                            "8K",
-                            "detailed skin",
-                            "HDR",
-                            "hyper realistic",
-                            "masterpiece",
-                            "octane render",
-                            "photorealistic",
-                            "trending on artstation"]
+                      "4K",
+                      "8K",
+                      "detailed skin",
+                      "HDR",
+                      "hyper realistic",
+                      "masterpiece",
+                      "octane render",
+                      "photorealistic",
+                      "trending on artstation"]
+
+SEASONS_LIST = [NONE_STRING,
+                "spring",
+                "summer",
+                "autumn",
+                "winter",
+                ]
+
+TIME_OF_DAY_LIST = [NONE_STRING,
+                    "morning",
+                    "afternoon",
+                    "evening",
+                    "night",
+                    ]
+
+WEATHER_LIST = [NONE_STRING,
+                "sunny",
+                "cloudy",
+                "rainy",
+                "snowy",
+                "foggy",
+                ]
+
+TERRAIN_LIST = [NONE_STRING,
+                "mountainous",
+                "plains",
+                "forest",
+                "desert",
+                "coastal",
+                ]
+
+MOOD_LIST = [NONE_STRING,
+             "serene",
+             "dramatic",
+             "mystical",
+             "moody",
+             "bright",
+             ]

@@ -73,13 +73,37 @@ def process_generic_form_data(form_data):
 
 def process_landscape_form_data(form_data):
     # Process form data from the request and return the necessary information
-    subject = form_data.get("subject")
+    description = form_data.get("description")
+    season = form_data.get("season")
+    time_of_day = form_data.get("time_of_day")
+    weather = form_data.get("weather")
+    terrain = form_data.get("terrain")
+    mood = form_data.get("mood")
 
     prompt = ""
 
-    if len(subject) > 0:
-        prompt += subject
+    if len(description) > 0:
+        prompt += description
         prompt += ", "
 
+    if season != prompt_parameters.NONE_STRING:
+        prompt += season
+        prompt += ", "
+
+    if time_of_day != prompt_parameters.NONE_STRING:
+        prompt += time_of_day
+        prompt += ", "
+
+    if weather != prompt_parameters.NONE_STRING:
+        prompt += weather
+        prompt += ", "
+
+    if terrain != prompt_parameters.NONE_STRING:
+        prompt += terrain
+        prompt += ", "
+
+    if mood != prompt_parameters.NONE_STRING:
+        prompt += mood
+        prompt += ", "
 
     return prompt
