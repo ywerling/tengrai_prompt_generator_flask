@@ -18,7 +18,7 @@
     >
 
 
-    <form method="POST" action="/adobe">
+    <form method="POST" action="{{ url_for('adobe.scrape') }}">
         <div class="mb-3 row">
             <label for="topic">Topic:</label>
             <input type="text" id="topic" name="topic" value="{{ topic }}"><br><br>

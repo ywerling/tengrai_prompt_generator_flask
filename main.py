@@ -27,6 +27,8 @@ from views.generic import generic_bp
 app.register_blueprint(generic_bp)
 from views.landscape import landscape_bp
 app.register_blueprint(landscape_bp)
+from views.adobe import adobe_bp
+app.register_blueprint(adobe_bp)
 
 #go to the basic template creator
 @app.route("/basic", methods=["GET", "POST"])
@@ -158,44 +160,44 @@ def basic():
                            miscellaneous=miscellaneous)
 
 #go to the generic template creator
-@app.route("/adobe", methods=["GET", "POST"])
-def adobe():
-    search_term = ""
-
-    if request.method == "POST":
-        search_term = request.form.get("topic")
-
-        chrome_options = webdriver.ChromeOptions()
-        # to ensure browser windows stays open set the detach parameter to True
-        chrome_options.add_experimental_option("detach", False)
-        driver = webdriver.Chrome(chrome_options)
-        driver.get(ADOBE_STOCK_IMAGES_URL)
-
-        # allow the page to load
-        time.sleep(WEBSCRAPPER_SLEEP_INTERVAL)
-        search_input = driver.find_element(By.NAME, "keyword")
-        # search_input.send_keys(SEARCH_TERM)
-        search_input.send_keys(search_term)
-        search_input.send_keys(Keys.ENTER)
-
-        # allow the page to load
-        time.sleep(1)
-
-        # images = driver.find_elements(By.CSS_SELECTOR, "#js-img-protect alt")
-        # get images from the webpage
-        images = driver.find_elements(By.XPATH, "//img[@alt]")
-
-        # this part is for testing purpose only, enable these lines for troubleshooting
-        # for image in images:
-        #     print(f'{image.get_attribute("alt")}{image.get_attribute("name")}\n')
-
-        return render_template('adobe.html',
-                               images=images,
-                               topic=search_term )
-
-    return render_template('adobe.html',
-                                images=None,
-                               topic=search_term)
+# @app.route("/adobe", methods=["GET", "POST"])
+# def adobe():
+#     search_term = ""
+#
+#     if request.method == "POST":
+#         search_term = request.form.get("topic")
+#
+#         chrome_options = webdriver.ChromeOptions()
+#         # to ensure browser windows stays open set the detach parameter to True
+#         chrome_options.add_experimental_option("detach", False)
+#         driver = webdriver.Chrome(chrome_options)
+#         driver.get(ADOBE_STOCK_IMAGES_URL)
+#
+#         # allow the page to load
+#         time.sleep(WEBSCRAPPER_SLEEP_INTERVAL)
+#         search_input = driver.find_element(By.NAME, "keyword")
+#         # search_input.send_keys(SEARCH_TERM)
+#         search_input.send_keys(search_term)
+#         search_input.send_keys(Keys.ENTER)
+#
+#         # allow the page to load
+#         time.sleep(1)
+#
+#         # images = driver.find_elements(By.CSS_SELECTOR, "#js-img-protect alt")
+#         # get images from the webpage
+#         images = driver.find_elements(By.XPATH, "//img[@alt]")
+#
+#         # this part is for testing purpose only, enable these lines for troubleshooting
+#         # for image in images:
+#         #     print(f'{image.get_attribute("alt")}{image.get_attribute("name")}\n')
+#
+#         return render_template('adobe.html',
+#                                images=images,
+#                                topic=search_term )
+#
+#     return render_template('adobe.html',
+#                                 images=None,
+#                                topic=search_term)
 
 
 #go to the character prompt creator
