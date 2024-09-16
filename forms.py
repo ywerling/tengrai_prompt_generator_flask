@@ -17,3 +17,8 @@ class GenericForm(FlaskForm):
     miscellaneous = SelectField("Miscellaneous", choices=prompt_parameters.MISCELLANEOUS_LIST)
 
     submit = SubmitField("Create Prompt")
+
+class LandscapeForm(FlaskForm):
+    subject = StringField("Subject")
+
+    submit = SubmitField("Create Prompt")

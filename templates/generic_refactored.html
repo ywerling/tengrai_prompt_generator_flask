@@ -53,13 +53,104 @@
                 {% endif %}
             </div>
 
-            <!-- Art Ype Dropdown Field -->
+            <!-- Art Type Dropdown Field -->
             <div class="mb-3">
                 {{ form.art_type.label(class="form-label") }}
                 {{ form.art_type(class="form-select") }}
                 {% if form.art_type.errors %}
                     <div class="text-danger">
                         {% for error in form.art_type.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Art TypeCamera Angle Dropdown Field -->
+            <div class="mb-3">
+                {{ form.camera_angle.label(class="form-label") }}
+                {{ form.camera_angle(class="form-select") }}
+                {% if form.camera_angle.errors %}
+                    <div class="text-danger">
+                        {% for error in form.camera_angle.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Lighting Dropdown Field -->
+            <div class="mb-3">
+                {{ form.lighting.label(class="form-label") }}
+                {{ form.lighting(class="form-select") }}
+                {% if form.lighting.errors %}
+                    <div class="text-danger">
+                        {% for error in form.lighting.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Color Palette Dropdown Field -->
+            <div class="mb-3">
+                {{ form.color_palette.label(class="form-label") }}
+                {{ form.color_palette(class="form-select") }}
+                {% if form.color_palette.errors %}
+                    <div class="text-danger">
+                        {% for error in form.color_palette.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Color Vibe Dropdown Field -->
+            <div class="mb-3">
+                {{ form.color_vibe.label(class="form-label") }}
+                {{ form.color_vibe(class="form-select") }}
+                {% if form.color_vibe.errors %}
+                    <div class="text-danger">
+                        {% for error in form.color_vibe.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Composition Dropdown Field -->
+            <div class="mb-3">
+                {{ form.composition.label(class="form-label") }}
+                {{ form.composition(class="form-select") }}
+                {% if form.composition.errors %}
+                    <div class="text-danger">
+                        {% for error in form.composition.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Special Effects Dropdown Field -->
+            <div class="mb-3">
+                {{ form.special_effect.label(class="form-label") }}
+                {{ form.special_effect(class="form-select") }}
+                {% if form.special_effect.errors %}
+                    <div class="text-danger">
+                        {% for error in form.color_vibe.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Miscellaneous Dropdown Field -->
+            <div class="mb-3">
+                {{ form.miscellaneous.label(class="form-label") }}
+                {{ form.miscellaneous(class="form-select") }}
+                {% if form.miscellaneous.errors %}
+                    <div class="text-danger">
+                        {% for error in form.miscellaneous.errors %}
                             <p>{{ error }}</p>
                         {% endfor %}
                     </div>

@@ -16,9 +16,9 @@ def process_generic_form_data(form_data):
 
     prompt = ""
 
-    if len(subject) >0 :
-        prompt+=subject
-        prompt+=", "
+    if len(subject) > 0:
+        prompt += subject
+        prompt += ", "
 
     if len(background) > 0:
         prompt += background
@@ -70,3 +70,16 @@ def process_generic_form_data(form_data):
     #     'style': style,
     #     # Add more fields here
     # }
+
+def process_landscape_form_data(form_data):
+    # Process form data from the request and return the necessary information
+    subject = form_data.get("subject")
+
+    prompt = ""
+
+    if len(subject) > 0:
+        prompt += subject
+        prompt += ", "
+
+
+    return prompt
