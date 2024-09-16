@@ -3,7 +3,7 @@ from forms import GenericForm
 from utils import process_generic_form_data
 import prompt_parameters
 
-generic_bp = Blueprint('generic2', __name__, url_prefix='/generic2')
+generic_bp = Blueprint('generic', __name__, url_prefix='/generic')
 
 
 @generic_bp.route("/", methods=["GET", "POST"])

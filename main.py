@@ -5,6 +5,8 @@ from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired, URL
 import prompt_parameters
 import person_parameters
+from forms import GenericForm
+from utils import process_generic_form_data
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -20,9 +22,13 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = ('52jMEfBA3347dbefePSSiheXox3E7e')
 Bootstrap5(app)
 
-#go to the generic template creator
-@app.route("/generic", methods=["GET", "POST"])
-def generic():
+# Blueprint registration (for modularization, create a blueprint for each module)
+from views.generic import generic_bp
+app.register_blueprint(generic_bp)
+
+#go to the basic template creator
+@app.route("/basic", methods=["GET", "POST"])
+def basic():
     subject = ""
     background = ""
     style = prompt_parameters.NONE_STRING
@@ -35,7 +41,7 @@ def generic():
     composition = prompt_parameters.NONE_STRING
     miscellaneous = prompt_parameters.NONE_STRING
 
-    print("generic called")
+    print("basic generator called")
     if request.method == "POST":
         # Capture form data
         subject = request.form.get("subject")
