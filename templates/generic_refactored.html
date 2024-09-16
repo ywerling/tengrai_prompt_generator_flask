@@ -58,6 +58,14 @@
                 {{ form.submit(class="btn btn-primary") }}
             </div>
         </form>
+
+        <!-- Display processed result here -->
+        {% if result %}
+        <div class="alert alert-info mt-3">
+            {{ result }}
+        </div>
+        {% endif %}
+
     </div>
 
     <!-- Include Bootstrap JS for better user experience -->
