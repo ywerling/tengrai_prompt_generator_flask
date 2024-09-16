@@ -236,18 +236,6 @@ def character():
         activity_detail = request.form.get("activity_detail")
         background = request.form.get("background")
 
-        # generated_prompt = (scene + " scene, "
-        #                     + gender + " "
-        #                     + race + " "
-        #                     + body_type + " "
-        #                     + skin + " skin "
-        #                     + hair_color + " "
-        #                     + hair_type + " hair "
-        #                     + clothing_color + " "
-        #                     + clothing_material + " "
-        #                     + clothing_type + " "
-        #                     + person_parameters.COMMON_PROMPT_ENDING)
-
         if scene != prompt_parameters.NONE_STRING:
             generated_prompt += scene
             generated_prompt += " scene, "
@@ -376,11 +364,6 @@ def character():
                                activity=activity,
                                activity_detail=activity_detail)
 
-
-#go to the landscape prompt creator
-@app.route("/landscape")
-def landscape():
-    return render_template('landscape.html')
 
 #start page of the webapplication
 @app.route("/")

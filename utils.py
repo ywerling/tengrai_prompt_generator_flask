@@ -60,6 +60,8 @@ def process_generic_form_data(form_data):
         prompt += miscellaneous
         prompt += ", "
 
+    prompt = prompt.rstrip(' ,')
+
     return prompt
 
     # Continue processing all necessary fields
@@ -105,5 +107,7 @@ def process_landscape_form_data(form_data):
     if mood != prompt_parameters.NONE_STRING:
         prompt += mood
         prompt += ", "
+
+    prompt = prompt.rstrip(' ,')
 
     return prompt
