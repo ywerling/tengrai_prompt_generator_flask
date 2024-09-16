@@ -5,6 +5,7 @@ def process_generic_form_data(form_data):
     subject = form_data.get("subject")
     background = form_data.get("background")
     style = form_data.get("style")
+    art_type = form_data.get("art_type")
 
     prompt = ""
 
@@ -18,7 +19,11 @@ def process_generic_form_data(form_data):
 
     if style != prompt_parameters.NONE_STRING:
         prompt += style
-        prompt += "."
+        prompt += ", "
+
+    if art_type != prompt_parameters.NONE_STRING:
+        prompt += art_type
+        prompt += ", "
 
     return prompt
 
