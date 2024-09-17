@@ -1,5 +1,6 @@
 import prompt_parameters
 
+
 def process_generic_form_data(form_data):
     # Process form data from the request and return the necessary information
     subject = form_data.get("subject")
@@ -60,7 +61,7 @@ def process_generic_form_data(form_data):
         prompt += miscellaneous
         prompt += ", "
 
-    prompt = prompt.rstrip(' ,')
+    prompt = simplify_string(prompt)
 
     return prompt
 
@@ -72,6 +73,7 @@ def process_generic_form_data(form_data):
     #     'style': style,
     #     # Add more fields here
     # }
+
 
 def process_landscape_form_data(form_data):
     # Process form data from the request and return the necessary information
@@ -108,6 +110,20 @@ def process_landscape_form_data(form_data):
         prompt += mood
         prompt += ", "
 
-    prompt = prompt.rstrip(' ,')
+    prompt = simplify_string(prompt)
 
     return prompt
+
+
+def process_character_form_data(form_data):
+    # Process form data from the request and return the necessary information
+    # subject = form_data.get("subject")
+    prompt = ""
+    return prompt
+
+
+def simplify_string(input_string):
+    # remove unnecessary characters from the prompt, initially the trailing spaces
+    # can be expanded for other beautification effects
+    output_string = input_string.rstrip(' ,')
+    return output_string
