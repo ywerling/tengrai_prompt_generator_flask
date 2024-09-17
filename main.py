@@ -10,6 +10,7 @@ from utils import process_generic_form_data
 from views.generic import generic_bp
 from views.landscape import landscape_bp
 from views.adobe import adobe_bp
+from views.character import character_bp
 
 # Define constants
 ADOBE_STOCK_IMAGES_URL = "https://stock.adobe.com/"
@@ -25,6 +26,7 @@ Bootstrap5(app)
 app.register_blueprint(generic_bp)
 app.register_blueprint(landscape_bp)
 app.register_blueprint(adobe_bp)
+app.register_blueprint(character_bp)
 
 #go to the basic template creator
 @app.route("/basic", methods=["GET", "POST"])

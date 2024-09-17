@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired, URL
 import prompt_parameters
+import person_parameters
 
 class GenericForm(FlaskForm):
     subject = StringField("Subject")  # , validators=[DataRequired()])
@@ -28,5 +29,11 @@ class LandscapeForm(FlaskForm):
     terrain = SelectField("Terrain", choices=prompt_parameters.TERRAIN_LIST)
     mood = SelectField("Mood", choices=prompt_parameters.MOOD_LIST)
 
+    submit = SubmitField("Create Prompt")
+
+class CharacterForm(FlaskForm):
+    description = StringField("Character Description")
+
+    # Dropdown menus for various landscape characteristics
 
     submit = SubmitField("Create Prompt")
