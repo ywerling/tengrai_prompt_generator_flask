@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request
 from forms import LandscapeForm
 from utils import process_landscape_form_data
-import prompt_parameters
+
 
 landscape_bp = Blueprint('landscape', __name__, url_prefix='/landscape')
 
@@ -10,7 +10,6 @@ landscape_bp = Blueprint('landscape', __name__, url_prefix='/landscape')
 def landscape():
     form = LandscapeForm()
 
-    processed_result = ""
     if request.method == "POST":
 
     # Process form data to create the prompt

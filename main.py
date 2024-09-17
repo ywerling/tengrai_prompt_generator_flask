@@ -7,10 +7,9 @@ import prompt_parameters
 import person_parameters
 from forms import GenericForm
 from utils import process_generic_form_data
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-import time
+from views.generic import generic_bp
+from views.landscape import landscape_bp
+from views.adobe import adobe_bp
 
 # Define constants
 ADOBE_STOCK_IMAGES_URL = "https://stock.adobe.com/"
@@ -23,11 +22,8 @@ app.config['SECRET_KEY'] = ('52jMEfBA3347dbefePSSiheXox3E7e')
 Bootstrap5(app)
 
 # Blueprint registration (for modularization, create a blueprint for each module)
-from views.generic import generic_bp
 app.register_blueprint(generic_bp)
-from views.landscape import landscape_bp
 app.register_blueprint(landscape_bp)
-from views.adobe import adobe_bp
 app.register_blueprint(adobe_bp)
 
 #go to the basic template creator
