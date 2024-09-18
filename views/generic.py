@@ -10,10 +10,10 @@ generic_bp = Blueprint('generic', __name__, url_prefix='/generic')
 def generic():
     form = GenericForm()
     # print("Generic called")
-    processed_result = ""
+
     if request.method == "POST":
-    # if form.validate_on_submit():
-    # Process form data to create the prompt
+        # if form.validate_on_submit():
+        # Process form data to create the prompt
         prompt = process_generic_form_data(request.form)
 
         # print(prompt)

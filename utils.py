@@ -202,8 +202,7 @@ def process_character_form_data(form_data):
 
     # add some generic elements to the prompt often used in portrait images to increase the probability of a quality image
     generated_prompt += person_parameters.COMMON_PROMPT_ENDING
-
-    print(f"Prompt: {generated_prompt}")
+    # print(f"Prompt: {generated_prompt}")
 
     return generated_prompt
 

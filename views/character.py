@@ -10,13 +10,10 @@ def character():
     form = CharacterForm()
 
     if request.method == "POST":
-    # if form.validate_on_submit():
-    # Process form data to create the prompt
         prompt = process_character_form_data(request.form)
 
-        print(prompt)
+        # print(prompt)
         return render_template('character.html', form=form, prompt=prompt)
 
     # Render the template without a result if the form is not submitted
     return render_template('character.html', form=form)
-

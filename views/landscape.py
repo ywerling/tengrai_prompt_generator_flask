@@ -12,10 +12,10 @@ def landscape():
 
     if request.method == "POST":
 
-    # Process form data to create the prompt
+        # Process form data to create the prompt
         prompt = process_landscape_form_data(request.form)
 
-        print(prompt)
+        # print(prompt)
         return render_template('landscape.html', form=form, prompt=prompt)
 
     # Render the template without a result if the form is not submitted

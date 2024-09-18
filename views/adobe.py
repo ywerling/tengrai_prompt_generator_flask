@@ -28,7 +28,7 @@ def init_webdriver():
 
 # Function to scrape Adobe Stock Images using Selenium
 def scrape_adobe_images(query):
-    print(f"Query: {query}")
+    # print(f"Query: {query}")
     driver = init_webdriver()
     try:
         driver.get(ADOBE_STOCK_IMAGES_URL)
@@ -41,10 +41,6 @@ def scrape_adobe_images(query):
         search_box.send_keys(Keys.RETURN)
 
         time.sleep(WEBSCRAPPER_SLEEP_INTERVAL)
-
-        # Example of extracting image data
-        # images = driver.find_elements(By.CLASS_NAME, "image-class")  # Replace with actual class name
-        # image_urls = [image.get_attribute('src') for image in images]
 
         images = driver.find_elements(By.XPATH, "//img[@alt]")
         # for image in images:
@@ -60,11 +56,10 @@ def scrape_adobe_images(query):
 # Route to handle Adobe scraping
 @adobe_bp.route("/scrape", methods=["GET", "POST"])
 def scrape():
-    images = []
     search_term = ""
-    print("scrape called")
+    # print("scrape called")
     if request.method == "POST":
-        print("scrape post")
+        # print("scrape post")
         search_term = request.form.get("topic")
         images = scrape_adobe_images(search_term)
         # for image in images:
