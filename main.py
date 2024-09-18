@@ -199,170 +199,170 @@ def basic():
 
 
 #go to the character prompt creator
-@app.route("/character", methods=["GET", "POST"])
-def character():
-    gender = person_parameters.NONE_STRING
-    scene = person_parameters.NONE_STRING
-    race = person_parameters.NONE_STRING
-    hair_color = person_parameters.NONE_STRING
-    body_type = person_parameters.NONE_STRING
-    skin = person_parameters.NONE_STRING
-    hair_type = person_parameters.NONE_STRING
-    clothing_material = person_parameters.NONE_STRING
-    clothing_color = person_parameters.NONE_STRING
-    clothing_type = person_parameters.NONE_STRING
-    tool = person_parameters.NONE_STRING
-    tool_action = person_parameters.NONE_STRING
-    activity = person_parameters.NONE_STRING
-    activity_detail = ""
-    background = ""
-
-    if request.method == "POST":
-        generated_prompt = ""
-
-        gender = request.form.get("gender")
-        scene = request.form.get("scene")
-        race = request.form.get("race")
-        hair_color = request.form.get("hair_color")
-        body_type = request.form.get("body_type")
-        skin = request.form.get("skin")
-        hair_type = request.form.get("hair_type")
-        clothing_material = request.form.get("clothing_material")
-        clothing_color = request.form.get("clothing_color")
-        clothing_type = request.form.get("clothing_type")
-        tool = request.form.get("tool")
-        tool_action = request.form.get("tool_action")
-        activity = request.form.get("activity")
-        activity_detail = request.form.get("activity_detail")
-        background = request.form.get("background")
-
-        if scene != prompt_parameters.NONE_STRING:
-            generated_prompt += scene
-            generated_prompt += " scene, "
-
-        if gender != prompt_parameters.NONE_STRING:
-            generated_prompt += gender
-            generated_prompt += " "
-
-        if race != prompt_parameters.NONE_STRING:
-            generated_prompt += race
-            generated_prompt += " "
-
-        if body_type != prompt_parameters.NONE_STRING:
-            generated_prompt += body_type
-            generated_prompt += ", "
-
-        if skin != prompt_parameters.NONE_STRING:
-            generated_prompt += skin
-            generated_prompt += " skin, "
-
-        if hair_color != prompt_parameters.NONE_STRING:
-            generated_prompt += hair_color
-            generated_prompt += " "
-
-        if hair_type != prompt_parameters.NONE_STRING:
-            generated_prompt += hair_type
-            generated_prompt += " hair, "
-
-        if clothing_color != prompt_parameters.NONE_STRING:
-            generated_prompt += clothing_color
-            generated_prompt += " "
-
-        if clothing_material != prompt_parameters.NONE_STRING:
-            generated_prompt += clothing_material
-            generated_prompt += " "
-
-        if clothing_type != prompt_parameters.NONE_STRING:
-            generated_prompt += clothing_type
-            generated_prompt += ", "
-
-        if tool_action != prompt_parameters.NONE_STRING:
-            generated_prompt += tool_action
-            generated_prompt += " "
-
-        if tool != prompt_parameters.NONE_STRING:
-            generated_prompt += "a "
-            generated_prompt += tool
-            generated_prompt += ", "
-
-        if activity != prompt_parameters.NONE_STRING:
-            generated_prompt += activity
-            generated_prompt += " "
-
-        if len(activity_detail) > 1:
-            generated_prompt += activity_detail
-            generated_prompt += ", "
-
-        if len(background) > 1:
-            generated_prompt += "the background consists of "
-            generated_prompt += background
-            generated_prompt += ", "
-
-# add some generic elements to the prompt often used in portrait images to increase the probability of a quality image
-        generated_prompt += person_parameters.COMMON_PROMPT_ENDING
-
-        return render_template('character.html',
-                               prompt=generated_prompt,
-                               genders=person_parameters.GENDER_LIST,
-                               scenes=person_parameters.SCENES_LIST,
-                               races=person_parameters.RACES_LIST,
-                               hair_colors=person_parameters.COLORS_LIST,
-                               body_types=person_parameters.BODY_TYPES_LIST,
-                               skins=person_parameters.SKIN_LIST,
-                               hair_types=person_parameters.HAIR_TYPES_LIST,
-                               clothing_materials=person_parameters.CLOTHING_MATERIAL_LIST,
-                               clothing_colors=person_parameters.COLORS_LIST,
-                               clothing_types=person_parameters.CLOTHING_TYPE_LIST,
-                               tool_actions=person_parameters.TOOL_ACTIONS_LIST,
-                               tools=person_parameters.TOOLS_LIST,
-                               activities=person_parameters.ACTIVITY_LIST,
-                               gender=gender,
-                               scene=scene,
-                               race=race,
-                               hair_color=hair_color,
-                               body_type=body_type,
-                               skin=skin,
-                               hair_type=hair_type,
-                               clothing_color=clothing_color,
-                               clothing_material=clothing_material,
-                               clothing_type=clothing_type,
-                               tool_action=tool_action,
-                               tool=tool,
-                               background=background,
-                               activity=activity,
-                               activity_detail=activity_detail)
-
-
-    return render_template('character.html',
-                               prompt=None,
-                               genders=person_parameters.GENDER_LIST,
-                               scenes=person_parameters.SCENES_LIST,
-                               races=person_parameters.RACES_LIST,
-                               hair_colors=person_parameters.COLORS_LIST,
-                               body_types=person_parameters.BODY_TYPES_LIST,
-                               skins=person_parameters.SKIN_LIST,
-                               hair_types=person_parameters.HAIR_TYPES_LIST,
-                               clothing_materials=person_parameters.CLOTHING_MATERIAL_LIST,
-                               clothing_colors=person_parameters.COLORS_LIST,
-                               clothing_types=person_parameters.CLOTHING_TYPE_LIST,
-                               tool_actions=person_parameters.TOOL_ACTIONS_LIST,
-                               tools=person_parameters.TOOLS_LIST,
-                               activities=person_parameters.ACTIVITY_LIST,
-                               gender=gender,
-                               scene=scene,
-                               race=race,
-                               hair_color=hair_color,
-                               body_type=body_type,
-                               skin=skin,
-                               hair_type=hair_type,
-                               clothing_color=clothing_color,
-                               clothing_material=clothing_material,
-                               clothing_type=clothing_type,
-                               tool_action=tool_action,
-                               tool=tool,
-                               background=background,
-                               activity=activity,
-                               activity_detail=activity_detail)
+# @app.route("/character", methods=["GET", "POST"])
+# def character():
+#     gender = person_parameters.NONE_STRING
+#     scene = person_parameters.NONE_STRING
+#     race = person_parameters.NONE_STRING
+#     hair_color = person_parameters.NONE_STRING
+#     body_type = person_parameters.NONE_STRING
+#     skin = person_parameters.NONE_STRING
+#     hair_type = person_parameters.NONE_STRING
+#     clothing_material = person_parameters.NONE_STRING
+#     clothing_color = person_parameters.NONE_STRING
+#     clothing_type = person_parameters.NONE_STRING
+#     tool = person_parameters.NONE_STRING
+#     tool_action = person_parameters.NONE_STRING
+#     activity = person_parameters.NONE_STRING
+#     activity_detail = ""
+#     background = ""
+#
+#     if request.method == "POST":
+#         generated_prompt = ""
+#
+#         gender = request.form.get("gender")
+#         scene = request.form.get("scene")
+#         race = request.form.get("race")
+#         hair_color = request.form.get("hair_color")
+#         body_type = request.form.get("body_type")
+#         skin = request.form.get("skin")
+#         hair_type = request.form.get("hair_type")
+#         clothing_material = request.form.get("clothing_material")
+#         clothing_color = request.form.get("clothing_color")
+#         clothing_type = request.form.get("clothing_type")
+#         tool = request.form.get("tool")
+#         tool_action = request.form.get("tool_action")
+#         activity = request.form.get("activity")
+#         activity_detail = request.form.get("activity_detail")
+#         background = request.form.get("background")
+#
+#         if scene != prompt_parameters.NONE_STRING:
+#             generated_prompt += scene
+#             generated_prompt += " scene, "
+#
+#         if gender != prompt_parameters.NONE_STRING:
+#             generated_prompt += gender
+#             generated_prompt += " "
+#
+#         if race != prompt_parameters.NONE_STRING:
+#             generated_prompt += race
+#             generated_prompt += " "
+#
+#         if body_type != prompt_parameters.NONE_STRING:
+#             generated_prompt += body_type
+#             generated_prompt += ", "
+#
+#         if skin != prompt_parameters.NONE_STRING:
+#             generated_prompt += skin
+#             generated_prompt += " skin, "
+#
+#         if hair_color != prompt_parameters.NONE_STRING:
+#             generated_prompt += hair_color
+#             generated_prompt += " "
+#
+#         if hair_type != prompt_parameters.NONE_STRING:
+#             generated_prompt += hair_type
+#             generated_prompt += " hair, "
+#
+#         if clothing_color != prompt_parameters.NONE_STRING:
+#             generated_prompt += clothing_color
+#             generated_prompt += " "
+#
+#         if clothing_material != prompt_parameters.NONE_STRING:
+#             generated_prompt += clothing_material
+#             generated_prompt += " "
+#
+#         if clothing_type != prompt_parameters.NONE_STRING:
+#             generated_prompt += clothing_type
+#             generated_prompt += ", "
+#
+#         if tool_action != prompt_parameters.NONE_STRING:
+#             generated_prompt += tool_action
+#             generated_prompt += " "
+#
+#         if tool != prompt_parameters.NONE_STRING:
+#             generated_prompt += "a "
+#             generated_prompt += tool
+#             generated_prompt += ", "
+#
+#         if activity != prompt_parameters.NONE_STRING:
+#             generated_prompt += activity
+#             generated_prompt += " "
+#
+#         if len(activity_detail) > 1:
+#             generated_prompt += activity_detail
+#             generated_prompt += ", "
+#
+#         if len(background) > 1:
+#             generated_prompt += "the background consists of "
+#             generated_prompt += background
+#             generated_prompt += ", "
+#
+# # add some generic elements to the prompt often used in portrait images to increase the probability of a quality image
+#         generated_prompt += person_parameters.COMMON_PROMPT_ENDING
+#
+#         return render_template('character.html',
+#                                prompt=generated_prompt,
+#                                genders=person_parameters.GENDER_LIST,
+#                                scenes=person_parameters.SCENES_LIST,
+#                                races=person_parameters.RACES_LIST,
+#                                hair_colors=person_parameters.COLORS_LIST,
+#                                body_types=person_parameters.BODY_TYPES_LIST,
+#                                skins=person_parameters.SKIN_LIST,
+#                                hair_types=person_parameters.HAIR_TYPES_LIST,
+#                                clothing_materials=person_parameters.CLOTHING_MATERIAL_LIST,
+#                                clothing_colors=person_parameters.COLORS_LIST,
+#                                clothing_types=person_parameters.CLOTHING_TYPE_LIST,
+#                                tool_actions=person_parameters.TOOL_ACTIONS_LIST,
+#                                tools=person_parameters.TOOLS_LIST,
+#                                activities=person_parameters.ACTIVITY_LIST,
+#                                gender=gender,
+#                                scene=scene,
+#                                race=race,
+#                                hair_color=hair_color,
+#                                body_type=body_type,
+#                                skin=skin,
+#                                hair_type=hair_type,
+#                                clothing_color=clothing_color,
+#                                clothing_material=clothing_material,
+#                                clothing_type=clothing_type,
+#                                tool_action=tool_action,
+#                                tool=tool,
+#                                background=background,
+#                                activity=activity,
+#                                activity_detail=activity_detail)
+#
+#
+#     return render_template('character.html',
+#                                prompt=None,
+#                                genders=person_parameters.GENDER_LIST,
+#                                scenes=person_parameters.SCENES_LIST,
+#                                races=person_parameters.RACES_LIST,
+#                                hair_colors=person_parameters.COLORS_LIST,
+#                                body_types=person_parameters.BODY_TYPES_LIST,
+#                                skins=person_parameters.SKIN_LIST,
+#                                hair_types=person_parameters.HAIR_TYPES_LIST,
+#                                clothing_materials=person_parameters.CLOTHING_MATERIAL_LIST,
+#                                clothing_colors=person_parameters.COLORS_LIST,
+#                                clothing_types=person_parameters.CLOTHING_TYPE_LIST,
+#                                tool_actions=person_parameters.TOOL_ACTIONS_LIST,
+#                                tools=person_parameters.TOOLS_LIST,
+#                                activities=person_parameters.ACTIVITY_LIST,
+#                                gender=gender,
+#                                scene=scene,
+#                                race=race,
+#                                hair_color=hair_color,
+#                                body_type=body_type,
+#                                skin=skin,
+#                                hair_type=hair_type,
+#                                clothing_color=clothing_color,
+#                                clothing_material=clothing_material,
+#                                clothing_type=clothing_type,
+#                                tool_action=tool_action,
+#                                tool=tool,
+#                                background=background,
+#                                activity=activity,
+#                                activity_detail=activity_detail)
 
 
 #start page of the webapplication

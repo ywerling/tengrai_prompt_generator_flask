@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generic Prompt Creator</title>
-    <!-- Include Bootstrap CSS for styling -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Generic Prompt Generator for Generative Artificial Intelligence{% endblock %}
+
+{% block content %}
     <div class="container mt-5">
         <h1>Generic Prompt Creator</h1>
+          <p class="description">Fill in the requested information and click generate. You can edit the prompt and store it to the clipboard.</p>
         <!-- Form begins here -->
         <form method="POST">
             {{ form.hidden_tag() }}  <!-- CSRF protection tag -->
@@ -196,5 +192,4 @@
     }
 
     </script>
-</body>
-</html>
+{% endblock %}
