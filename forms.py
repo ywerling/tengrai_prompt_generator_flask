@@ -32,8 +32,22 @@ class LandscapeForm(FlaskForm):
     submit = SubmitField("Create Prompt")
 
 class CharacterForm(FlaskForm):
-    description = StringField("Character Description")
+    activity_detail = StringField("Subject")
+    background = StringField("Subject")
 
     # Dropdown menus for various landscape characteristics
+    gender = SelectField("Gender", choices=person_parameters.GENDER_LIST)
+    scene = SelectField("Scene", choices=person_parameters.SCENES_LIST)
+    race = SelectField("Race", choices=person_parameters.RACES_LIST)
+    hair_color = SelectField("Hair Color", choices=person_parameters.COLORS_LIST)
+    body_type = SelectField("Body Type", choices=person_parameters.BODY_TYPES_LIST)
+    skin = SelectField("Skin", choices=person_parameters.SKIN_LIST)
+    hair_type = SelectField("Hair Type", choices=person_parameters.HAIR_TYPES_LIST)
+    clothing_material = SelectField("Clothing Material", choices=person_parameters.CLOTHING_MATERIAL_LIST)
+    clothing_color = SelectField("Clothing Color", choices=person_parameters.COLORS_LIST)
+    clothing_type = SelectField("Clothing Type", choices=person_parameters.CLOTHING_TYPE_LIST)
+    tool = SelectField("Tool", choices=person_parameters.TOOLS_LIST)
+    tool_action = SelectField("Tool Action", choices=person_parameters.TOOL_ACTIONS_LIST)
+    activity = SelectField("Activity", choices=person_parameters.ACTIVITY_LIST)
 
     submit = SubmitField("Create Prompt")
