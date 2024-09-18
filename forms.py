@@ -4,6 +4,7 @@ from wtforms.validators import DataRequired, URL
 import prompt_parameters
 import person_parameters
 
+
 class GenericForm(FlaskForm):
     subject = StringField("Subject")  # , validators=[DataRequired()])
     background = StringField("Background")
@@ -19,6 +20,7 @@ class GenericForm(FlaskForm):
 
     submit = SubmitField("Create Prompt")
 
+
 class LandscapeForm(FlaskForm):
     description = StringField("Landscape Description")
 
@@ -31,9 +33,10 @@ class LandscapeForm(FlaskForm):
 
     submit = SubmitField("Create Prompt")
 
+
 class CharacterForm(FlaskForm):
-    activity_detail = StringField("Subject")
-    background = StringField("Subject")
+    activity_detail = StringField("Activity Detail")
+    background = StringField("Background")
 
     # Dropdown menus for various landscape characteristics
     gender = SelectField("Gender", choices=person_parameters.GENDER_LIST)

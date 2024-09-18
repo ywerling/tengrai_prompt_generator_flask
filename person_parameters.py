@@ -3,7 +3,8 @@
 # by default the selected item will be set to none
 NONE_STRING = "-----"
 
-COMMON_PROMPT_ENDING = "full body, dynamic pose, life size, perfect anatomy, detailed skin texture, full HD, 4K, HDR, perfect anatomy, depth of field."
+COMMON_PROMPT_ENDING = ("full body, dynamic pose, life size, perfect anatomy, detailed skin texture, full HD, 4K, HDR, "
+                        "depth of field.")
 
 GENDER_LIST = [NONE_STRING,
                "Male", "Female"
