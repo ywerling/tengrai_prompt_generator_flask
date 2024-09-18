@@ -8,136 +8,85 @@
   <p class="description">Fill in the requested information and click generate. You can edit the prompt and send it to the clipboard to be used in other applications.</p>
 </div>
 
-    <form method="POST" action="/character">
+    <form method="POST">
+  {{ form.hidden_tag() }}  <!-- CSRF protection tag -->
 
         <div class="container">
           <div class="row">
             <div class="col-3">
-                <label for="scene">Setting:</label>
-                <select id="scene" name="scene">
-                {% for scene_option in scenes %}
-                    <option value="{{ scene_option }}" {% if scene_option == scene %}selected{% endif %}>{{ scene_option }}</option>
-                {% endfor %}
-                </select><br><br>
+                {{ form.scene.label(class="form-label") }}
+                {{ form.scene(class="form-control", placeholder="scene") }}
            </div>
               <div class="col-3">
-                <label for="gender">Gender:</label>
-                <select id="gender" name="gender">
-                {% for gender_option in genders %}
-                    <option value="{{ gender_option }}" {% if gender_option == gender %}selected{% endif %}>{{ gender_option }}</option>
-                {% endfor %}
-                </select><br><br>
+                {{ form.gender.label(class="form-label") }}
+                {{ form.gender(class="form-control", placeholder="gender") }}
            </div>
           <div class="col-3">
-            <label for="race">Race:</label>
-            <select id="race" name="race">
-            {% for race_option in races %}
-                <option value="{{ race_option }}" {% if race_option == race %}selected{% endif %}>{{ race_option }}</option>
-            {% endfor %}
-            </select><br><br>
+                {{ form.race.label(class="form-label") }}
+                {{ form.race(class="form-control", placeholder="race") }}
            </div>
            <div class="col-3">
-            <label for="body_type">Body:</label>
-            <select id="body_type" name="body_type">
-            {% for body_type_option in body_types %}
-                <option value="{{ body_type_option }}" {% if body_type_option == body_type %}selected{% endif %}>{{ body_type_option }}</option>
-            {% endfor %}
-            </select><br><br>
+                {{ form.body_type.label(class="form-label") }}
+                {{ form.body_type(class="form-control", placeholder="body_type") }}
            </div>
           <div class="col-3">
-            <label for="skin">Skin:</label>
-            <select id="skin" name="skin">
-            {% for skin_option in skins %}
-                <option value="{{ skin_option }}" {% if skin_option == skin %}selected{% endif %}>{{ skin_option }}</option>
-            {% endfor %}
-            </select><br><br>
+                {{ form.skin.label(class="form-label") }}
+                {{ form.skin(class="form-control", placeholder="skin") }}
            </div>
 
           </div>
 
         <div class="row">
           <div class="col-3">
-            <label for="hair_color">Hair:</label>
-            <select id="hair_color" name="hair_color">
-            {% for hair_color_option in hair_colors %}
-                <option value="{{ hair_color_option }}" {% if hair_color_option == hair_color %}selected{% endif %}>{{ hair_color_option }}</option>
-            {% endfor %}
-            </select><br><br>
+                {{ form.hair_color.label(class="form-label") }}
+                {{ form.hair_color(class="form-control", placeholder="hair_color") }}
            </div>
           <div class="col-3">
-            <label for="hair_type">Hair:</label>
-            <select id="hair_type" name="hair_type">
-            {% for hair_type_option in hair_types %}
-                <option value="{{ hair_type_option }}" {% if hair_type_option == hair_type %}selected{% endif %}>{{ hair_type_option }}</option>
-            {% endfor %}
-            </select><br><br>
+                {{ form.hair_type.label(class="form-label") }}
+                {{ form.hair_type(class="form-control", placeholder="hair_type") }}
            </div>
             <div class="col-3">
-                <label for="clothing_color">Clothes:</label>
-                <select id="clothing_color" name="clothing_color">
-                {% for clothing_color_option in clothing_colors %}
-                    <option value="{{ clothing_color_option }}" {% if clothing_color_option == clothing_color %}selected{% endif %}>{{ clothing_color_option }}</option>
-                {% endfor %}
-                </select><br><br>
+                {{ form.clothing_color.label(class="form-label") }}
+                {{ form.clothing_color(class="form-control", placeholder="clothing_color") }}
            </div>
                 <div class="col-3">
-                <label for="clothing_material">Clothes:</label>
-                <select id="clothing_material" name="clothing_material">
-                {% for clothing_material_option in clothing_materials %}
-                    <option value="{{ clothing_material_option }}" {% if clothing_material_option == clothing_material %}selected{% endif %}>{{ clothing_material_option }}</option>
-                {% endfor %}
-                </select><br><br>
+                {{ form.clothing_material.label(class="form-label") }}
+                {{ form.clothing_material(class="form-control", placeholder="clothing_material") }}
            </div>
             <div class="col-3">
-                <label for="clothing_type">Clothes:</label>
-                <select id="clothing_type" name="clothing_type">
-                {% for clothing_type_option in clothing_types %}
-                    <option value="{{ clothing_type_option }}" {% if clothing_type_option == clothing_type %}selected{% endif %}>{{ clothing_type_option }}</option>
-                {% endfor %}
-                </select><br><br>
+                {{ form.clothing_type.label(class="form-label") }}
+                {{ form.clothing_type(class="form-control", placeholder="clothing_type") }}
            </div>
 
         </div>
 
         <div class="row">
           <div class="col-3">
-            <label for="tool_action">Action:</label>
-            <select id="tool_action" name="tool_action">
-            {% for tool_action_option in tool_actions %}
-                <option value="{{ tool_action_option }}" {% if tool_action_option == tool_action %}selected{% endif %}>{{ tool_action_option }}</option>
-            {% endfor %}
-            </select><br><br>
+                {{ form.tool_action.label(class="form-label") }}
+                {{ form.tool_action(class="form-control", placeholder="tool_action") }}
            </div>
           <div class="col-3">
-            <label for="tool">Object:</label>
-            <select id="tool" name="tool">
-            {% for tool_option in tools %}
-                <option value="{{ tool_option }}" {% if tool_option == tool %}selected{% endif %}>{{ tool_option }}</option>
-            {% endfor %}
-            </select><br><br>
+                {{ form.tool.label(class="form-label") }}
+                {{ form.tool(class="form-control", placeholder="tool") }}
            </div>
         </div>
 
         <div class="row">
           <div class="col-md-2">
-            <label for="activity">Activity:</label>
-            <select id="activity" name="activity">
-            {% for activity_option in activities %}
-                <option value="{{ activity_option }}" {% if activity_option == activity %}selected{% endif %}>{{ activity_option }}</option>
-            {% endfor %}
-            </select>
+                {{ form.activity.label(class="form-label") }}
+                {{ form.activity(class="form-control", placeholder="activity") }}
            </div>
            <div class="col-md-1">  <label for="activity_detail">Details:</label>
            </div>
            <div class="col-md-4">
-            <input type="text" id="activity_detail" name="activity_detail" value="{{ activity_detail }}">
+                {{ form.activity_detail.label(class="form-label") }}
+                {{ form.activity_detail(class="form-control", placeholder="activity_detail") }}
            </div>
        </div>
 
         <div class="row">
-            <label for="background">Background:</label>
-            <input type="text" id="background" name="background" value="{{ background }}">
-            <br><br>
+                {{ form.background.label(class="form-label") }}
+                {{ form.background(class="form-control", placeholder="background") }}
        </div>
 
 

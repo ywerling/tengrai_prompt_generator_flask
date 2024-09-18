@@ -14,8 +14,8 @@ def character():
     # Process form data to create the prompt
         prompt = process_character_form_data(request.form)
 
-        # print(prompt)
-        return render_template('character.html', form=form, result=prompt)
+        print(prompt)
+        return render_template('character.html', form=form, prompt=prompt)
 
     # Render the template without a result if the form is not submitted
     return render_template('character.html', form=form)
