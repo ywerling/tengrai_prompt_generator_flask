@@ -7,8 +7,6 @@ from views.adobe import adobe_bp
 from views.character import character_bp
 
 # Define constants
-ADOBE_STOCK_IMAGES_URL = "https://stock.adobe.com/"
-WEBSCRAPPER_SLEEP_INTERVAL = 1
 
 # creates the flask instance
 app = Flask(__name__)
@@ -35,7 +33,7 @@ def basic():
     composition = prompt_parameters.NONE_STRING
     miscellaneous = prompt_parameters.NONE_STRING
 
-    print("basic generator called")
+    # print("basic generator called")
     if request.method == "POST":
         # Capture form data
         subject = request.form.get("subject")

@@ -34,14 +34,16 @@ def scrape_adobe_images(query):
         driver.get(ADOBE_STOCK_IMAGES_URL)
         time.sleep(WEBSCRAPPER_SLEEP_INTERVAL)
 
-        # Example search functionality on Adobe Stock
+        # Find search box and enter search query
         search_box = driver.find_element(By.NAME, "keyword")
         search_box.clear()
         search_box.send_keys(query)
         search_box.send_keys(Keys.RETURN)
 
+        # allow time for processing the return
         time.sleep(WEBSCRAPPER_SLEEP_INTERVAL)
 
+        # get infomration about the images
         images = driver.find_elements(By.XPATH, "//img[@alt]")
         # for image in images:
         #     print(f'{image.get_attribute("alt")}{image.get_attribute("name")}\n')
