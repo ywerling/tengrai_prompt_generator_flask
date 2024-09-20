@@ -43,6 +43,7 @@ ART_TYPE_LIST = [NONE_STRING,
                  "botanical art",
                  "cartoon art",
                  "cinematographic scene",
+                 "chronophotography",
                  "coloring book",
                  "concept art",
                  "dark fantasy",
@@ -52,6 +53,7 @@ ART_TYPE_LIST = [NONE_STRING,
                  "isometric illustration",
                  "Japanese ink art",
                  "kinetic art",
+                 "Kirlian photography",
                  "light painting",
                  "lithograph",
                  "low poly 3D",
@@ -77,7 +79,8 @@ ART_TYPE_LIST = [NONE_STRING,
                  "typography art",
                  "ukiyo-e art",
                  "watercolor painting",
-                 "woodcut"]
+                 "woodcut",
+                 "X-Ray style",]
 
 # specifying the camera angle gives more realistic images
 CAMERA_ANGLE_LIST = [NONE_STRING,
@@ -188,6 +191,8 @@ SPECIAL_EFFECTS_LIST = [NONE_STRING,
                         "fiber-optic weave",
                         "holographic flares",
                         "phosphorescent shimmer",
+                        "Schlieren style",
+                        "Thermal Imaging",
                         "thermoluminescent"]
 
 # a few additional commands to modify an image
