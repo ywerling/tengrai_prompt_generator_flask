@@ -44,6 +44,7 @@ class CharacterForm(FlaskForm):
     race = SelectField("Race", choices=person_parameters.RACES_LIST)
     hair_color = SelectField("Hair Color", choices=person_parameters.COLORS_LIST)
     body_type = SelectField("Body Type", choices=person_parameters.BODY_TYPES_LIST)
+    body_pose = SelectField("Body Pose", choices=person_parameters.POSES_LIST)
     skin = SelectField("Skin", choices=person_parameters.SKIN_LIST)
     hair_type = SelectField("Hair Type", choices=person_parameters.HAIR_TYPES_LIST)
     clothing_material = SelectField("Clothing Material", choices=person_parameters.CLOTHING_MATERIAL_LIST)

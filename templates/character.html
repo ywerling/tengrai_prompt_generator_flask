@@ -62,6 +62,10 @@
 
         <div class="row">
           <div class="col-3">
+            {{ form.body_pose.label(class="form-label") }}
+            {{ form.body_pose(class="form-control", placeholder="body_pose") }}
+          </div>
+          <div class="col-3">
                 {{ form.tool_action.label(class="form-label") }}
                 {{ form.tool_action(class="form-control", placeholder="tool_action") }}
            </div>

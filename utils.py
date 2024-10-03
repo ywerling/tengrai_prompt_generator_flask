@@ -125,6 +125,7 @@ def process_character_form_data(form_data):
     race = form_data.get("race")
     hair_color = form_data.get("hair_color")
     body_type = form_data.get("body_type")
+    body_pose  = form_data.get("body_pose")
     skin = form_data.get("skin")
     hair_type = form_data.get("hair_type")
     clothing_material = form_data.get("clothing_material")
@@ -135,6 +136,7 @@ def process_character_form_data(form_data):
     activity = form_data.get("activity")
     activity_detail = form_data.get("activity_detail")
     background = form_data.get("background")
+
 
     generated_prompt = ""
 
@@ -177,6 +179,10 @@ def process_character_form_data(form_data):
     if clothing_type != prompt_parameters.NONE_STRING:
         generated_prompt += clothing_type
         generated_prompt += ", "
+
+    if body_pose != prompt_parameters.NONE_STRING:
+        generated_prompt += body_pose
+        generated_prompt += " pose, "
 
     if tool_action != prompt_parameters.NONE_STRING:
         generated_prompt += tool_action
